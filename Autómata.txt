@@ -1,0 +1,1640 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> Axioma_
+Rule 1     Axioma_ -> Axioma
+Rule 2     Axioma -> Sentencia Axioma
+Rule 3     Axioma -> Funcion Axioma
+Rule 4     Axioma -> empty
+Rule 5     Sentencia -> S
+Rule 6     Sentencia -> IF_
+Rule 7     Sentencia -> LET Tipo ID SEMICOLON
+Rule 8     IF_ -> IF1 IF2
+Rule 9     IF1 -> IF LPARENT E RPARENT Senten
+Rule 10    IF2 -> ELSE Senten
+Rule 11    IF2 -> empty
+Rule 12    Senten -> Sentencia
+Rule 13    Senten -> LBRACKET Lista_Sentencias RBRACKET
+Rule 14    S -> ID ASSIGN E SEMICOLON
+Rule 15    S -> ID REMAINDER E SEMICOLON
+Rule 16    S -> ID LPARENT Parametros RPARENT SEMICOLON
+Rule 17    S -> ALERT LPARENT E RPARENT SEMICOLON
+Rule 18    S -> INPUT LPARENT ID RPARENT SEMICOLON
+Rule 19    S -> RETURN X SEMICOLON
+Rule 20    Parametros -> E K2
+Rule 21    Parametros -> empty
+Rule 22    K2 -> COMMA E K2
+Rule 23    K2 -> empty
+Rule 24    X -> E
+Rule 25    X -> empty
+Rule 26    Funcion -> F1 F2 F3
+Rule 27    F1 -> FUNCTION Tipo_B ID
+Rule 28    F2 -> LPARENT Cabecera RPARENT
+Rule 29    F3 -> LBRACKET Lista_Sentencias RBRACKET
+Rule 30    Tipo -> BOOLEAN
+Rule 31    Tipo -> NUMBER
+Rule 32    Tipo -> STRING
+Rule 33    Tipo_B -> Tipo
+Rule 34    Tipo_B -> empty
+Rule 35    Cabecera -> Tipo ID K
+Rule 36    Cabecera -> empty
+Rule 37    K -> COMMA Tipo ID K
+Rule 38    K -> empty
+Rule 39    Lista_Sentencias -> Sentencia Lista_Sentencias
+Rule 40    Lista_Sentencias -> empty
+Rule 41    E -> NEGATION V
+Rule 42    E -> R
+Rule 43    R -> R GREATERT U
+Rule 44    R -> R LESST U
+Rule 45    R -> U
+Rule 46    U -> U PLUS V
+Rule 47    U -> U MINUS V
+Rule 48    U -> V
+Rule 49    V -> ID
+Rule 50    V -> LPARENT E RPARENT
+Rule 51    V -> ID LPARENT Parametros RPARENT
+Rule 52    V -> CONSTNUM
+Rule 53    V -> CHAIN
+Rule 54    empty -> <empty>
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . Axioma_
+    (1) Axioma_ -> . Axioma
+    (2) Axioma -> . Sentencia Axioma
+    (3) Axioma -> . Funcion Axioma
+    (4) Axioma -> . empty
+    (5) Sentencia -> . S
+    (6) Sentencia -> . IF_
+    (7) Sentencia -> . LET Tipo ID SEMICOLON
+    (26) Funcion -> . F1 F2 F3
+    (54) empty -> .
+    (14) S -> . ID ASSIGN E SEMICOLON
+    (15) S -> . ID REMAINDER E SEMICOLON
+    (16) S -> . ID LPARENT Parametros RPARENT SEMICOLON
+    (17) S -> . ALERT LPARENT E RPARENT SEMICOLON
+    (18) S -> . INPUT LPARENT ID RPARENT SEMICOLON
+    (19) S -> . RETURN X SEMICOLON
+    (8) IF_ -> . IF1 IF2
+    (27) F1 -> . FUNCTION Tipo_B ID
+    (9) IF1 -> . IF LPARENT E RPARENT Senten
+
+    LET             shift and go to state 8
+    $end            reduce using rule 54 (empty -> .)
+    ID              shift and go to state 9
+    ALERT           shift and go to state 11
+    INPUT           shift and go to state 12
+    RETURN          shift and go to state 13
+    FUNCTION        shift and go to state 15
+    IF              shift and go to state 16
+
+    Axioma_                        shift and go to state 1
+    Axioma                         shift and go to state 2
+    Sentencia                      shift and go to state 3
+    Funcion                        shift and go to state 4
+    empty                          shift and go to state 5
+    S                              shift and go to state 6
+    IF_                            shift and go to state 7
+    F1                             shift and go to state 10
+    IF1                            shift and go to state 14
+
+state 1
+
+    (0) S' -> Axioma_ .
+
+
+
+state 2
+
+    (1) Axioma_ -> Axioma .
+
+    $end            reduce using rule 1 (Axioma_ -> Axioma .)
+
+
+state 3
+
+    (2) Axioma -> Sentencia . Axioma
+    (2) Axioma -> . Sentencia Axioma
+    (3) Axioma -> . Funcion Axioma
+    (4) Axioma -> . empty
+    (5) Sentencia -> . S
+    (6) Sentencia -> . IF_
+    (7) Sentencia -> . LET Tipo ID SEMICOLON
+    (26) Funcion -> . F1 F2 F3
+    (54) empty -> .
+    (14) S -> . ID ASSIGN E SEMICOLON
+    (15) S -> . ID REMAINDER E SEMICOLON
+    (16) S -> . ID LPARENT Parametros RPARENT SEMICOLON
+    (17) S -> . ALERT LPARENT E RPARENT SEMICOLON
+    (18) S -> . INPUT LPARENT ID RPARENT SEMICOLON
+    (19) S -> . RETURN X SEMICOLON
+    (8) IF_ -> . IF1 IF2
+    (27) F1 -> . FUNCTION Tipo_B ID
+    (9) IF1 -> . IF LPARENT E RPARENT Senten
+
+    LET             shift and go to state 8
+    $end            reduce using rule 54 (empty -> .)
+    ID              shift and go to state 9
+    ALERT           shift and go to state 11
+    INPUT           shift and go to state 12
+    RETURN          shift and go to state 13
+    FUNCTION        shift and go to state 15
+    IF              shift and go to state 16
+
+    Sentencia                      shift and go to state 3
+    Axioma                         shift and go to state 17
+    Funcion                        shift and go to state 4
+    empty                          shift and go to state 5
+    S                              shift and go to state 6
+    IF_                            shift and go to state 7
+    F1                             shift and go to state 10
+    IF1                            shift and go to state 14
+
+state 4
+
+    (3) Axioma -> Funcion . Axioma
+    (2) Axioma -> . Sentencia Axioma
+    (3) Axioma -> . Funcion Axioma
+    (4) Axioma -> . empty
+    (5) Sentencia -> . S
+    (6) Sentencia -> . IF_
+    (7) Sentencia -> . LET Tipo ID SEMICOLON
+    (26) Funcion -> . F1 F2 F3
+    (54) empty -> .
+    (14) S -> . ID ASSIGN E SEMICOLON
+    (15) S -> . ID REMAINDER E SEMICOLON
+    (16) S -> . ID LPARENT Parametros RPARENT SEMICOLON
+    (17) S -> . ALERT LPARENT E RPARENT SEMICOLON
+    (18) S -> . INPUT LPARENT ID RPARENT SEMICOLON
+    (19) S -> . RETURN X SEMICOLON
+    (8) IF_ -> . IF1 IF2
+    (27) F1 -> . FUNCTION Tipo_B ID
+    (9) IF1 -> . IF LPARENT E RPARENT Senten
+
+    LET             shift and go to state 8
+    $end            reduce using rule 54 (empty -> .)
+    ID              shift and go to state 9
+    ALERT           shift and go to state 11
+    INPUT           shift and go to state 12
+    RETURN          shift and go to state 13
+    FUNCTION        shift and go to state 15
+    IF              shift and go to state 16
+
+    Funcion                        shift and go to state 4
+    Axioma                         shift and go to state 18
+    Sentencia                      shift and go to state 3
+    empty                          shift and go to state 5
+    S                              shift and go to state 6
+    IF_                            shift and go to state 7
+    F1                             shift and go to state 10
+    IF1                            shift and go to state 14
+
+state 5
+
+    (4) Axioma -> empty .
+
+    $end            reduce using rule 4 (Axioma -> empty .)
+
+
+state 6
+
+    (5) Sentencia -> S .
+
+    LET             reduce using rule 5 (Sentencia -> S .)
+    ID              reduce using rule 5 (Sentencia -> S .)
+    ALERT           reduce using rule 5 (Sentencia -> S .)
+    INPUT           reduce using rule 5 (Sentencia -> S .)
+    RETURN          reduce using rule 5 (Sentencia -> S .)
+    FUNCTION        reduce using rule 5 (Sentencia -> S .)
+    IF              reduce using rule 5 (Sentencia -> S .)
+    $end            reduce using rule 5 (Sentencia -> S .)
+    RBRACKET        reduce using rule 5 (Sentencia -> S .)
+    ELSE            reduce using rule 5 (Sentencia -> S .)
+
+
+state 7
+
+    (6) Sentencia -> IF_ .
+
+    LET             reduce using rule 6 (Sentencia -> IF_ .)
+    ID              reduce using rule 6 (Sentencia -> IF_ .)
+    ALERT           reduce using rule 6 (Sentencia -> IF_ .)
+    INPUT           reduce using rule 6 (Sentencia -> IF_ .)
+    RETURN          reduce using rule 6 (Sentencia -> IF_ .)
+    FUNCTION        reduce using rule 6 (Sentencia -> IF_ .)
+    IF              reduce using rule 6 (Sentencia -> IF_ .)
+    $end            reduce using rule 6 (Sentencia -> IF_ .)
+    RBRACKET        reduce using rule 6 (Sentencia -> IF_ .)
+    ELSE            reduce using rule 6 (Sentencia -> IF_ .)
+
+
+state 8
+
+    (7) Sentencia -> LET . Tipo ID SEMICOLON
+    (30) Tipo -> . BOOLEAN
+    (31) Tipo -> . NUMBER
+    (32) Tipo -> . STRING
+
+    BOOLEAN         shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+
+    Tipo                           shift and go to state 19
+
+state 9
+
+    (14) S -> ID . ASSIGN E SEMICOLON
+    (15) S -> ID . REMAINDER E SEMICOLON
+    (16) S -> ID . LPARENT Parametros RPARENT SEMICOLON
+
+    ASSIGN          shift and go to state 23
+    REMAINDER       shift and go to state 24
+    LPARENT         shift and go to state 25
+
+
+state 10
+
+    (26) Funcion -> F1 . F2 F3
+    (28) F2 -> . LPARENT Cabecera RPARENT
+
+    LPARENT         shift and go to state 27
+
+    F2                             shift and go to state 26
+
+state 11
+
+    (17) S -> ALERT . LPARENT E RPARENT SEMICOLON
+
+    LPARENT         shift and go to state 28
+
+
+state 12
+
+    (18) S -> INPUT . LPARENT ID RPARENT SEMICOLON
+
+    LPARENT         shift and go to state 29
+
+
+state 13
+
+    (19) S -> RETURN . X SEMICOLON
+    (24) X -> . E
+    (25) X -> . empty
+    (41) E -> . NEGATION V
+    (42) E -> . R
+    (54) empty -> .
+    (43) R -> . R GREATERT U
+    (44) R -> . R LESST U
+    (45) R -> . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    NEGATION        shift and go to state 33
+    SEMICOLON       reduce using rule 54 (empty -> .)
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    X                              shift and go to state 30
+    E                              shift and go to state 31
+    empty                          shift and go to state 32
+    V                              shift and go to state 34
+    R                              shift and go to state 35
+    U                              shift and go to state 36
+
+state 14
+
+    (8) IF_ -> IF1 . IF2
+    (10) IF2 -> . ELSE Senten
+    (11) IF2 -> . empty
+    (54) empty -> .
+
+    ELSE            shift and go to state 42
+    LET             reduce using rule 54 (empty -> .)
+    ID              reduce using rule 54 (empty -> .)
+    ALERT           reduce using rule 54 (empty -> .)
+    INPUT           reduce using rule 54 (empty -> .)
+    RETURN          reduce using rule 54 (empty -> .)
+    FUNCTION        reduce using rule 54 (empty -> .)
+    IF              reduce using rule 54 (empty -> .)
+    $end            reduce using rule 54 (empty -> .)
+    RBRACKET        reduce using rule 54 (empty -> .)
+
+    IF2                            shift and go to state 41
+    empty                          shift and go to state 43
+
+state 15
+
+    (27) F1 -> FUNCTION . Tipo_B ID
+    (33) Tipo_B -> . Tipo
+    (34) Tipo_B -> . empty
+    (30) Tipo -> . BOOLEAN
+    (31) Tipo -> . NUMBER
+    (32) Tipo -> . STRING
+    (54) empty -> .
+
+    BOOLEAN         shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    ID              reduce using rule 54 (empty -> .)
+
+    Tipo_B                         shift and go to state 44
+    Tipo                           shift and go to state 45
+    empty                          shift and go to state 46
+
+state 16
+
+    (9) IF1 -> IF . LPARENT E RPARENT Senten
+
+    LPARENT         shift and go to state 47
+
+
+state 17
+
+    (2) Axioma -> Sentencia Axioma .
+
+    $end            reduce using rule 2 (Axioma -> Sentencia Axioma .)
+
+
+state 18
+
+    (3) Axioma -> Funcion Axioma .
+
+    $end            reduce using rule 3 (Axioma -> Funcion Axioma .)
+
+
+state 19
+
+    (7) Sentencia -> LET Tipo . ID SEMICOLON
+
+    ID              shift and go to state 48
+
+
+state 20
+
+    (30) Tipo -> BOOLEAN .
+
+    ID              reduce using rule 30 (Tipo -> BOOLEAN .)
+
+
+state 21
+
+    (31) Tipo -> NUMBER .
+
+    ID              reduce using rule 31 (Tipo -> NUMBER .)
+
+
+state 22
+
+    (32) Tipo -> STRING .
+
+    ID              reduce using rule 32 (Tipo -> STRING .)
+
+
+state 23
+
+    (14) S -> ID ASSIGN . E SEMICOLON
+    (41) E -> . NEGATION V
+    (42) E -> . R
+    (43) R -> . R GREATERT U
+    (44) R -> . R LESST U
+    (45) R -> . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    NEGATION        shift and go to state 33
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    E                              shift and go to state 49
+    V                              shift and go to state 34
+    R                              shift and go to state 35
+    U                              shift and go to state 36
+
+state 24
+
+    (15) S -> ID REMAINDER . E SEMICOLON
+    (41) E -> . NEGATION V
+    (42) E -> . R
+    (43) R -> . R GREATERT U
+    (44) R -> . R LESST U
+    (45) R -> . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    NEGATION        shift and go to state 33
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    E                              shift and go to state 50
+    V                              shift and go to state 34
+    R                              shift and go to state 35
+    U                              shift and go to state 36
+
+state 25
+
+    (16) S -> ID LPARENT . Parametros RPARENT SEMICOLON
+    (20) Parametros -> . E K2
+    (21) Parametros -> . empty
+    (41) E -> . NEGATION V
+    (42) E -> . R
+    (54) empty -> .
+    (43) R -> . R GREATERT U
+    (44) R -> . R LESST U
+    (45) R -> . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    NEGATION        shift and go to state 33
+    RPARENT         reduce using rule 54 (empty -> .)
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    Parametros                     shift and go to state 51
+    E                              shift and go to state 52
+    empty                          shift and go to state 53
+    V                              shift and go to state 34
+    R                              shift and go to state 35
+    U                              shift and go to state 36
+
+state 26
+
+    (26) Funcion -> F1 F2 . F3
+    (29) F3 -> . LBRACKET Lista_Sentencias RBRACKET
+
+    LBRACKET        shift and go to state 55
+
+    F3                             shift and go to state 54
+
+state 27
+
+    (28) F2 -> LPARENT . Cabecera RPARENT
+    (35) Cabecera -> . Tipo ID K
+    (36) Cabecera -> . empty
+    (30) Tipo -> . BOOLEAN
+    (31) Tipo -> . NUMBER
+    (32) Tipo -> . STRING
+    (54) empty -> .
+
+    BOOLEAN         shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+    RPARENT         reduce using rule 54 (empty -> .)
+
+    Cabecera                       shift and go to state 56
+    Tipo                           shift and go to state 57
+    empty                          shift and go to state 58
+
+state 28
+
+    (17) S -> ALERT LPARENT . E RPARENT SEMICOLON
+    (41) E -> . NEGATION V
+    (42) E -> . R
+    (43) R -> . R GREATERT U
+    (44) R -> . R LESST U
+    (45) R -> . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    NEGATION        shift and go to state 33
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    E                              shift and go to state 59
+    V                              shift and go to state 34
+    R                              shift and go to state 35
+    U                              shift and go to state 36
+
+state 29
+
+    (18) S -> INPUT LPARENT . ID RPARENT SEMICOLON
+
+    ID              shift and go to state 60
+
+
+state 30
+
+    (19) S -> RETURN X . SEMICOLON
+
+    SEMICOLON       shift and go to state 61
+
+
+state 31
+
+    (24) X -> E .
+
+    SEMICOLON       reduce using rule 24 (X -> E .)
+
+
+state 32
+
+    (25) X -> empty .
+
+    SEMICOLON       reduce using rule 25 (X -> empty .)
+
+
+state 33
+
+    (41) E -> NEGATION . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    V                              shift and go to state 62
+
+state 34
+
+    (48) U -> V .
+
+    PLUS            reduce using rule 48 (U -> V .)
+    MINUS           reduce using rule 48 (U -> V .)
+    GREATERT        reduce using rule 48 (U -> V .)
+    LESST           reduce using rule 48 (U -> V .)
+    SEMICOLON       reduce using rule 48 (U -> V .)
+    COMMA           reduce using rule 48 (U -> V .)
+    RPARENT         reduce using rule 48 (U -> V .)
+
+
+state 35
+
+    (42) E -> R .
+    (43) R -> R . GREATERT U
+    (44) R -> R . LESST U
+
+    SEMICOLON       reduce using rule 42 (E -> R .)
+    COMMA           reduce using rule 42 (E -> R .)
+    RPARENT         reduce using rule 42 (E -> R .)
+    GREATERT        shift and go to state 63
+    LESST           shift and go to state 64
+
+
+state 36
+
+    (45) R -> U .
+    (46) U -> U . PLUS V
+    (47) U -> U . MINUS V
+
+    GREATERT        reduce using rule 45 (R -> U .)
+    LESST           reduce using rule 45 (R -> U .)
+    SEMICOLON       reduce using rule 45 (R -> U .)
+    COMMA           reduce using rule 45 (R -> U .)
+    RPARENT         reduce using rule 45 (R -> U .)
+    PLUS            shift and go to state 65
+    MINUS           shift and go to state 66
+
+
+state 37
+
+    (49) V -> ID .
+    (51) V -> ID . LPARENT Parametros RPARENT
+
+    PLUS            reduce using rule 49 (V -> ID .)
+    MINUS           reduce using rule 49 (V -> ID .)
+    GREATERT        reduce using rule 49 (V -> ID .)
+    LESST           reduce using rule 49 (V -> ID .)
+    SEMICOLON       reduce using rule 49 (V -> ID .)
+    COMMA           reduce using rule 49 (V -> ID .)
+    RPARENT         reduce using rule 49 (V -> ID .)
+    LPARENT         shift and go to state 67
+
+
+state 38
+
+    (50) V -> LPARENT . E RPARENT
+    (41) E -> . NEGATION V
+    (42) E -> . R
+    (43) R -> . R GREATERT U
+    (44) R -> . R LESST U
+    (45) R -> . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    NEGATION        shift and go to state 33
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    E                              shift and go to state 68
+    V                              shift and go to state 34
+    R                              shift and go to state 35
+    U                              shift and go to state 36
+
+state 39
+
+    (52) V -> CONSTNUM .
+
+    PLUS            reduce using rule 52 (V -> CONSTNUM .)
+    MINUS           reduce using rule 52 (V -> CONSTNUM .)
+    GREATERT        reduce using rule 52 (V -> CONSTNUM .)
+    LESST           reduce using rule 52 (V -> CONSTNUM .)
+    SEMICOLON       reduce using rule 52 (V -> CONSTNUM .)
+    COMMA           reduce using rule 52 (V -> CONSTNUM .)
+    RPARENT         reduce using rule 52 (V -> CONSTNUM .)
+
+
+state 40
+
+    (53) V -> CHAIN .
+
+    PLUS            reduce using rule 53 (V -> CHAIN .)
+    MINUS           reduce using rule 53 (V -> CHAIN .)
+    GREATERT        reduce using rule 53 (V -> CHAIN .)
+    LESST           reduce using rule 53 (V -> CHAIN .)
+    SEMICOLON       reduce using rule 53 (V -> CHAIN .)
+    COMMA           reduce using rule 53 (V -> CHAIN .)
+    RPARENT         reduce using rule 53 (V -> CHAIN .)
+
+
+state 41
+
+    (8) IF_ -> IF1 IF2 .
+
+    LET             reduce using rule 8 (IF_ -> IF1 IF2 .)
+    ID              reduce using rule 8 (IF_ -> IF1 IF2 .)
+    ALERT           reduce using rule 8 (IF_ -> IF1 IF2 .)
+    INPUT           reduce using rule 8 (IF_ -> IF1 IF2 .)
+    RETURN          reduce using rule 8 (IF_ -> IF1 IF2 .)
+    FUNCTION        reduce using rule 8 (IF_ -> IF1 IF2 .)
+    IF              reduce using rule 8 (IF_ -> IF1 IF2 .)
+    $end            reduce using rule 8 (IF_ -> IF1 IF2 .)
+    RBRACKET        reduce using rule 8 (IF_ -> IF1 IF2 .)
+    ELSE            reduce using rule 8 (IF_ -> IF1 IF2 .)
+
+
+state 42
+
+    (10) IF2 -> ELSE . Senten
+    (12) Senten -> . Sentencia
+    (13) Senten -> . LBRACKET Lista_Sentencias RBRACKET
+    (5) Sentencia -> . S
+    (6) Sentencia -> . IF_
+    (7) Sentencia -> . LET Tipo ID SEMICOLON
+    (14) S -> . ID ASSIGN E SEMICOLON
+    (15) S -> . ID REMAINDER E SEMICOLON
+    (16) S -> . ID LPARENT Parametros RPARENT SEMICOLON
+    (17) S -> . ALERT LPARENT E RPARENT SEMICOLON
+    (18) S -> . INPUT LPARENT ID RPARENT SEMICOLON
+    (19) S -> . RETURN X SEMICOLON
+    (8) IF_ -> . IF1 IF2
+    (9) IF1 -> . IF LPARENT E RPARENT Senten
+
+    LBRACKET        shift and go to state 71
+    LET             shift and go to state 8
+    ID              shift and go to state 9
+    ALERT           shift and go to state 11
+    INPUT           shift and go to state 12
+    RETURN          shift and go to state 13
+    IF              shift and go to state 16
+
+    Senten                         shift and go to state 69
+    Sentencia                      shift and go to state 70
+    S                              shift and go to state 6
+    IF_                            shift and go to state 7
+    IF1                            shift and go to state 14
+
+state 43
+
+    (11) IF2 -> empty .
+
+    LET             reduce using rule 11 (IF2 -> empty .)
+    ID              reduce using rule 11 (IF2 -> empty .)
+    ALERT           reduce using rule 11 (IF2 -> empty .)
+    INPUT           reduce using rule 11 (IF2 -> empty .)
+    RETURN          reduce using rule 11 (IF2 -> empty .)
+    FUNCTION        reduce using rule 11 (IF2 -> empty .)
+    IF              reduce using rule 11 (IF2 -> empty .)
+    $end            reduce using rule 11 (IF2 -> empty .)
+    RBRACKET        reduce using rule 11 (IF2 -> empty .)
+    ELSE            reduce using rule 11 (IF2 -> empty .)
+
+
+state 44
+
+    (27) F1 -> FUNCTION Tipo_B . ID
+
+    ID              shift and go to state 72
+
+
+state 45
+
+    (33) Tipo_B -> Tipo .
+
+    ID              reduce using rule 33 (Tipo_B -> Tipo .)
+
+
+state 46
+
+    (34) Tipo_B -> empty .
+
+    ID              reduce using rule 34 (Tipo_B -> empty .)
+
+
+state 47
+
+    (9) IF1 -> IF LPARENT . E RPARENT Senten
+    (41) E -> . NEGATION V
+    (42) E -> . R
+    (43) R -> . R GREATERT U
+    (44) R -> . R LESST U
+    (45) R -> . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    NEGATION        shift and go to state 33
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    E                              shift and go to state 73
+    V                              shift and go to state 34
+    R                              shift and go to state 35
+    U                              shift and go to state 36
+
+state 48
+
+    (7) Sentencia -> LET Tipo ID . SEMICOLON
+
+    SEMICOLON       shift and go to state 74
+
+
+state 49
+
+    (14) S -> ID ASSIGN E . SEMICOLON
+
+    SEMICOLON       shift and go to state 75
+
+
+state 50
+
+    (15) S -> ID REMAINDER E . SEMICOLON
+
+    SEMICOLON       shift and go to state 76
+
+
+state 51
+
+    (16) S -> ID LPARENT Parametros . RPARENT SEMICOLON
+
+    RPARENT         shift and go to state 77
+
+
+state 52
+
+    (20) Parametros -> E . K2
+    (22) K2 -> . COMMA E K2
+    (23) K2 -> . empty
+    (54) empty -> .
+
+    COMMA           shift and go to state 79
+    RPARENT         reduce using rule 54 (empty -> .)
+
+    K2                             shift and go to state 78
+    empty                          shift and go to state 80
+
+state 53
+
+    (21) Parametros -> empty .
+
+    RPARENT         reduce using rule 21 (Parametros -> empty .)
+
+
+state 54
+
+    (26) Funcion -> F1 F2 F3 .
+
+    LET             reduce using rule 26 (Funcion -> F1 F2 F3 .)
+    ID              reduce using rule 26 (Funcion -> F1 F2 F3 .)
+    ALERT           reduce using rule 26 (Funcion -> F1 F2 F3 .)
+    INPUT           reduce using rule 26 (Funcion -> F1 F2 F3 .)
+    RETURN          reduce using rule 26 (Funcion -> F1 F2 F3 .)
+    FUNCTION        reduce using rule 26 (Funcion -> F1 F2 F3 .)
+    IF              reduce using rule 26 (Funcion -> F1 F2 F3 .)
+    $end            reduce using rule 26 (Funcion -> F1 F2 F3 .)
+
+
+state 55
+
+    (29) F3 -> LBRACKET . Lista_Sentencias RBRACKET
+    (39) Lista_Sentencias -> . Sentencia Lista_Sentencias
+    (40) Lista_Sentencias -> . empty
+    (5) Sentencia -> . S
+    (6) Sentencia -> . IF_
+    (7) Sentencia -> . LET Tipo ID SEMICOLON
+    (54) empty -> .
+    (14) S -> . ID ASSIGN E SEMICOLON
+    (15) S -> . ID REMAINDER E SEMICOLON
+    (16) S -> . ID LPARENT Parametros RPARENT SEMICOLON
+    (17) S -> . ALERT LPARENT E RPARENT SEMICOLON
+    (18) S -> . INPUT LPARENT ID RPARENT SEMICOLON
+    (19) S -> . RETURN X SEMICOLON
+    (8) IF_ -> . IF1 IF2
+    (9) IF1 -> . IF LPARENT E RPARENT Senten
+
+    LET             shift and go to state 8
+    RBRACKET        reduce using rule 54 (empty -> .)
+    ID              shift and go to state 9
+    ALERT           shift and go to state 11
+    INPUT           shift and go to state 12
+    RETURN          shift and go to state 13
+    IF              shift and go to state 16
+
+    Lista_Sentencias               shift and go to state 81
+    Sentencia                      shift and go to state 82
+    empty                          shift and go to state 83
+    S                              shift and go to state 6
+    IF_                            shift and go to state 7
+    IF1                            shift and go to state 14
+
+state 56
+
+    (28) F2 -> LPARENT Cabecera . RPARENT
+
+    RPARENT         shift and go to state 84
+
+
+state 57
+
+    (35) Cabecera -> Tipo . ID K
+
+    ID              shift and go to state 85
+
+
+state 58
+
+    (36) Cabecera -> empty .
+
+    RPARENT         reduce using rule 36 (Cabecera -> empty .)
+
+
+state 59
+
+    (17) S -> ALERT LPARENT E . RPARENT SEMICOLON
+
+    RPARENT         shift and go to state 86
+
+
+state 60
+
+    (18) S -> INPUT LPARENT ID . RPARENT SEMICOLON
+
+    RPARENT         shift and go to state 87
+
+
+state 61
+
+    (19) S -> RETURN X SEMICOLON .
+
+    LET             reduce using rule 19 (S -> RETURN X SEMICOLON .)
+    ID              reduce using rule 19 (S -> RETURN X SEMICOLON .)
+    ALERT           reduce using rule 19 (S -> RETURN X SEMICOLON .)
+    INPUT           reduce using rule 19 (S -> RETURN X SEMICOLON .)
+    RETURN          reduce using rule 19 (S -> RETURN X SEMICOLON .)
+    FUNCTION        reduce using rule 19 (S -> RETURN X SEMICOLON .)
+    IF              reduce using rule 19 (S -> RETURN X SEMICOLON .)
+    $end            reduce using rule 19 (S -> RETURN X SEMICOLON .)
+    RBRACKET        reduce using rule 19 (S -> RETURN X SEMICOLON .)
+    ELSE            reduce using rule 19 (S -> RETURN X SEMICOLON .)
+
+
+state 62
+
+    (41) E -> NEGATION V .
+
+    SEMICOLON       reduce using rule 41 (E -> NEGATION V .)
+    COMMA           reduce using rule 41 (E -> NEGATION V .)
+    RPARENT         reduce using rule 41 (E -> NEGATION V .)
+
+
+state 63
+
+    (43) R -> R GREATERT . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    U                              shift and go to state 88
+    V                              shift and go to state 34
+
+state 64
+
+    (44) R -> R LESST . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    U                              shift and go to state 89
+    V                              shift and go to state 34
+
+state 65
+
+    (46) U -> U PLUS . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    V                              shift and go to state 90
+
+state 66
+
+    (47) U -> U MINUS . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    V                              shift and go to state 91
+
+state 67
+
+    (51) V -> ID LPARENT . Parametros RPARENT
+    (20) Parametros -> . E K2
+    (21) Parametros -> . empty
+    (41) E -> . NEGATION V
+    (42) E -> . R
+    (54) empty -> .
+    (43) R -> . R GREATERT U
+    (44) R -> . R LESST U
+    (45) R -> . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    NEGATION        shift and go to state 33
+    RPARENT         reduce using rule 54 (empty -> .)
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    Parametros                     shift and go to state 92
+    E                              shift and go to state 52
+    empty                          shift and go to state 53
+    V                              shift and go to state 34
+    R                              shift and go to state 35
+    U                              shift and go to state 36
+
+state 68
+
+    (50) V -> LPARENT E . RPARENT
+
+    RPARENT         shift and go to state 93
+
+
+state 69
+
+    (10) IF2 -> ELSE Senten .
+
+    LET             reduce using rule 10 (IF2 -> ELSE Senten .)
+    ID              reduce using rule 10 (IF2 -> ELSE Senten .)
+    ALERT           reduce using rule 10 (IF2 -> ELSE Senten .)
+    INPUT           reduce using rule 10 (IF2 -> ELSE Senten .)
+    RETURN          reduce using rule 10 (IF2 -> ELSE Senten .)
+    FUNCTION        reduce using rule 10 (IF2 -> ELSE Senten .)
+    IF              reduce using rule 10 (IF2 -> ELSE Senten .)
+    $end            reduce using rule 10 (IF2 -> ELSE Senten .)
+    RBRACKET        reduce using rule 10 (IF2 -> ELSE Senten .)
+    ELSE            reduce using rule 10 (IF2 -> ELSE Senten .)
+
+
+state 70
+
+    (12) Senten -> Sentencia .
+
+    LET             reduce using rule 12 (Senten -> Sentencia .)
+    ID              reduce using rule 12 (Senten -> Sentencia .)
+    ALERT           reduce using rule 12 (Senten -> Sentencia .)
+    INPUT           reduce using rule 12 (Senten -> Sentencia .)
+    RETURN          reduce using rule 12 (Senten -> Sentencia .)
+    FUNCTION        reduce using rule 12 (Senten -> Sentencia .)
+    IF              reduce using rule 12 (Senten -> Sentencia .)
+    $end            reduce using rule 12 (Senten -> Sentencia .)
+    RBRACKET        reduce using rule 12 (Senten -> Sentencia .)
+    ELSE            reduce using rule 12 (Senten -> Sentencia .)
+
+
+state 71
+
+    (13) Senten -> LBRACKET . Lista_Sentencias RBRACKET
+    (39) Lista_Sentencias -> . Sentencia Lista_Sentencias
+    (40) Lista_Sentencias -> . empty
+    (5) Sentencia -> . S
+    (6) Sentencia -> . IF_
+    (7) Sentencia -> . LET Tipo ID SEMICOLON
+    (54) empty -> .
+    (14) S -> . ID ASSIGN E SEMICOLON
+    (15) S -> . ID REMAINDER E SEMICOLON
+    (16) S -> . ID LPARENT Parametros RPARENT SEMICOLON
+    (17) S -> . ALERT LPARENT E RPARENT SEMICOLON
+    (18) S -> . INPUT LPARENT ID RPARENT SEMICOLON
+    (19) S -> . RETURN X SEMICOLON
+    (8) IF_ -> . IF1 IF2
+    (9) IF1 -> . IF LPARENT E RPARENT Senten
+
+    LET             shift and go to state 8
+    RBRACKET        reduce using rule 54 (empty -> .)
+    ID              shift and go to state 9
+    ALERT           shift and go to state 11
+    INPUT           shift and go to state 12
+    RETURN          shift and go to state 13
+    IF              shift and go to state 16
+
+    Lista_Sentencias               shift and go to state 94
+    Sentencia                      shift and go to state 82
+    empty                          shift and go to state 83
+    S                              shift and go to state 6
+    IF_                            shift and go to state 7
+    IF1                            shift and go to state 14
+
+state 72
+
+    (27) F1 -> FUNCTION Tipo_B ID .
+
+    LPARENT         reduce using rule 27 (F1 -> FUNCTION Tipo_B ID .)
+
+
+state 73
+
+    (9) IF1 -> IF LPARENT E . RPARENT Senten
+
+    RPARENT         shift and go to state 95
+
+
+state 74
+
+    (7) Sentencia -> LET Tipo ID SEMICOLON .
+
+    LET             reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+    ID              reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+    ALERT           reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+    INPUT           reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+    RETURN          reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+    FUNCTION        reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+    IF              reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+    $end            reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+    RBRACKET        reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+    ELSE            reduce using rule 7 (Sentencia -> LET Tipo ID SEMICOLON .)
+
+
+state 75
+
+    (14) S -> ID ASSIGN E SEMICOLON .
+
+    LET             reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+    ID              reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+    ALERT           reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+    INPUT           reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+    RETURN          reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+    FUNCTION        reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+    IF              reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+    $end            reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+    RBRACKET        reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+    ELSE            reduce using rule 14 (S -> ID ASSIGN E SEMICOLON .)
+
+
+state 76
+
+    (15) S -> ID REMAINDER E SEMICOLON .
+
+    LET             reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+    ID              reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+    ALERT           reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+    INPUT           reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+    RETURN          reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+    FUNCTION        reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+    IF              reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+    $end            reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+    RBRACKET        reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+    ELSE            reduce using rule 15 (S -> ID REMAINDER E SEMICOLON .)
+
+
+state 77
+
+    (16) S -> ID LPARENT Parametros RPARENT . SEMICOLON
+
+    SEMICOLON       shift and go to state 96
+
+
+state 78
+
+    (20) Parametros -> E K2 .
+
+    RPARENT         reduce using rule 20 (Parametros -> E K2 .)
+
+
+state 79
+
+    (22) K2 -> COMMA . E K2
+    (41) E -> . NEGATION V
+    (42) E -> . R
+    (43) R -> . R GREATERT U
+    (44) R -> . R LESST U
+    (45) R -> . U
+    (46) U -> . U PLUS V
+    (47) U -> . U MINUS V
+    (48) U -> . V
+    (49) V -> . ID
+    (50) V -> . LPARENT E RPARENT
+    (51) V -> . ID LPARENT Parametros RPARENT
+    (52) V -> . CONSTNUM
+    (53) V -> . CHAIN
+
+    NEGATION        shift and go to state 33
+    ID              shift and go to state 37
+    LPARENT         shift and go to state 38
+    CONSTNUM        shift and go to state 39
+    CHAIN           shift and go to state 40
+
+    E                              shift and go to state 97
+    V                              shift and go to state 34
+    R                              shift and go to state 35
+    U                              shift and go to state 36
+
+state 80
+
+    (23) K2 -> empty .
+
+    RPARENT         reduce using rule 23 (K2 -> empty .)
+
+
+state 81
+
+    (29) F3 -> LBRACKET Lista_Sentencias . RBRACKET
+
+    RBRACKET        shift and go to state 98
+
+
+state 82
+
+    (39) Lista_Sentencias -> Sentencia . Lista_Sentencias
+    (39) Lista_Sentencias -> . Sentencia Lista_Sentencias
+    (40) Lista_Sentencias -> . empty
+    (5) Sentencia -> . S
+    (6) Sentencia -> . IF_
+    (7) Sentencia -> . LET Tipo ID SEMICOLON
+    (54) empty -> .
+    (14) S -> . ID ASSIGN E SEMICOLON
+    (15) S -> . ID REMAINDER E SEMICOLON
+    (16) S -> . ID LPARENT Parametros RPARENT SEMICOLON
+    (17) S -> . ALERT LPARENT E RPARENT SEMICOLON
+    (18) S -> . INPUT LPARENT ID RPARENT SEMICOLON
+    (19) S -> . RETURN X SEMICOLON
+    (8) IF_ -> . IF1 IF2
+    (9) IF1 -> . IF LPARENT E RPARENT Senten
+
+    LET             shift and go to state 8
+    RBRACKET        reduce using rule 54 (empty -> .)
+    ID              shift and go to state 9
+    ALERT           shift and go to state 11
+    INPUT           shift and go to state 12
+    RETURN          shift and go to state 13
+    IF              shift and go to state 16
+
+    Sentencia                      shift and go to state 82
+    Lista_Sentencias               shift and go to state 99
+    empty                          shift and go to state 83
+    S                              shift and go to state 6
+    IF_                            shift and go to state 7
+    IF1                            shift and go to state 14
+
+state 83
+
+    (40) Lista_Sentencias -> empty .
+
+    RBRACKET        reduce using rule 40 (Lista_Sentencias -> empty .)
+
+
+state 84
+
+    (28) F2 -> LPARENT Cabecera RPARENT .
+
+    LBRACKET        reduce using rule 28 (F2 -> LPARENT Cabecera RPARENT .)
+
+
+state 85
+
+    (35) Cabecera -> Tipo ID . K
+    (37) K -> . COMMA Tipo ID K
+    (38) K -> . empty
+    (54) empty -> .
+
+    COMMA           shift and go to state 101
+    RPARENT         reduce using rule 54 (empty -> .)
+
+    K                              shift and go to state 100
+    empty                          shift and go to state 102
+
+state 86
+
+    (17) S -> ALERT LPARENT E RPARENT . SEMICOLON
+
+    SEMICOLON       shift and go to state 103
+
+
+state 87
+
+    (18) S -> INPUT LPARENT ID RPARENT . SEMICOLON
+
+    SEMICOLON       shift and go to state 104
+
+
+state 88
+
+    (43) R -> R GREATERT U .
+    (46) U -> U . PLUS V
+    (47) U -> U . MINUS V
+
+    GREATERT        reduce using rule 43 (R -> R GREATERT U .)
+    LESST           reduce using rule 43 (R -> R GREATERT U .)
+    SEMICOLON       reduce using rule 43 (R -> R GREATERT U .)
+    COMMA           reduce using rule 43 (R -> R GREATERT U .)
+    RPARENT         reduce using rule 43 (R -> R GREATERT U .)
+    PLUS            shift and go to state 65
+    MINUS           shift and go to state 66
+
+
+state 89
+
+    (44) R -> R LESST U .
+    (46) U -> U . PLUS V
+    (47) U -> U . MINUS V
+
+    GREATERT        reduce using rule 44 (R -> R LESST U .)
+    LESST           reduce using rule 44 (R -> R LESST U .)
+    SEMICOLON       reduce using rule 44 (R -> R LESST U .)
+    COMMA           reduce using rule 44 (R -> R LESST U .)
+    RPARENT         reduce using rule 44 (R -> R LESST U .)
+    PLUS            shift and go to state 65
+    MINUS           shift and go to state 66
+
+
+state 90
+
+    (46) U -> U PLUS V .
+
+    PLUS            reduce using rule 46 (U -> U PLUS V .)
+    MINUS           reduce using rule 46 (U -> U PLUS V .)
+    GREATERT        reduce using rule 46 (U -> U PLUS V .)
+    LESST           reduce using rule 46 (U -> U PLUS V .)
+    SEMICOLON       reduce using rule 46 (U -> U PLUS V .)
+    COMMA           reduce using rule 46 (U -> U PLUS V .)
+    RPARENT         reduce using rule 46 (U -> U PLUS V .)
+
+
+state 91
+
+    (47) U -> U MINUS V .
+
+    PLUS            reduce using rule 47 (U -> U MINUS V .)
+    MINUS           reduce using rule 47 (U -> U MINUS V .)
+    GREATERT        reduce using rule 47 (U -> U MINUS V .)
+    LESST           reduce using rule 47 (U -> U MINUS V .)
+    SEMICOLON       reduce using rule 47 (U -> U MINUS V .)
+    COMMA           reduce using rule 47 (U -> U MINUS V .)
+    RPARENT         reduce using rule 47 (U -> U MINUS V .)
+
+
+state 92
+
+    (51) V -> ID LPARENT Parametros . RPARENT
+
+    RPARENT         shift and go to state 105
+
+
+state 93
+
+    (50) V -> LPARENT E RPARENT .
+
+    PLUS            reduce using rule 50 (V -> LPARENT E RPARENT .)
+    MINUS           reduce using rule 50 (V -> LPARENT E RPARENT .)
+    GREATERT        reduce using rule 50 (V -> LPARENT E RPARENT .)
+    LESST           reduce using rule 50 (V -> LPARENT E RPARENT .)
+    SEMICOLON       reduce using rule 50 (V -> LPARENT E RPARENT .)
+    COMMA           reduce using rule 50 (V -> LPARENT E RPARENT .)
+    RPARENT         reduce using rule 50 (V -> LPARENT E RPARENT .)
+
+
+state 94
+
+    (13) Senten -> LBRACKET Lista_Sentencias . RBRACKET
+
+    RBRACKET        shift and go to state 106
+
+
+state 95
+
+    (9) IF1 -> IF LPARENT E RPARENT . Senten
+    (12) Senten -> . Sentencia
+    (13) Senten -> . LBRACKET Lista_Sentencias RBRACKET
+    (5) Sentencia -> . S
+    (6) Sentencia -> . IF_
+    (7) Sentencia -> . LET Tipo ID SEMICOLON
+    (14) S -> . ID ASSIGN E SEMICOLON
+    (15) S -> . ID REMAINDER E SEMICOLON
+    (16) S -> . ID LPARENT Parametros RPARENT SEMICOLON
+    (17) S -> . ALERT LPARENT E RPARENT SEMICOLON
+    (18) S -> . INPUT LPARENT ID RPARENT SEMICOLON
+    (19) S -> . RETURN X SEMICOLON
+    (8) IF_ -> . IF1 IF2
+    (9) IF1 -> . IF LPARENT E RPARENT Senten
+
+    LBRACKET        shift and go to state 71
+    LET             shift and go to state 8
+    ID              shift and go to state 9
+    ALERT           shift and go to state 11
+    INPUT           shift and go to state 12
+    RETURN          shift and go to state 13
+    IF              shift and go to state 16
+
+    Senten                         shift and go to state 107
+    Sentencia                      shift and go to state 70
+    S                              shift and go to state 6
+    IF_                            shift and go to state 7
+    IF1                            shift and go to state 14
+
+state 96
+
+    (16) S -> ID LPARENT Parametros RPARENT SEMICOLON .
+
+    LET             reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+    ID              reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+    ALERT           reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+    INPUT           reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+    RETURN          reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+    FUNCTION        reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+    IF              reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+    $end            reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+    RBRACKET        reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+    ELSE            reduce using rule 16 (S -> ID LPARENT Parametros RPARENT SEMICOLON .)
+
+
+state 97
+
+    (22) K2 -> COMMA E . K2
+    (22) K2 -> . COMMA E K2
+    (23) K2 -> . empty
+    (54) empty -> .
+
+    COMMA           shift and go to state 79
+    RPARENT         reduce using rule 54 (empty -> .)
+
+    K2                             shift and go to state 108
+    empty                          shift and go to state 80
+
+state 98
+
+    (29) F3 -> LBRACKET Lista_Sentencias RBRACKET .
+
+    LET             reduce using rule 29 (F3 -> LBRACKET Lista_Sentencias RBRACKET .)
+    ID              reduce using rule 29 (F3 -> LBRACKET Lista_Sentencias RBRACKET .)
+    ALERT           reduce using rule 29 (F3 -> LBRACKET Lista_Sentencias RBRACKET .)
+    INPUT           reduce using rule 29 (F3 -> LBRACKET Lista_Sentencias RBRACKET .)
+    RETURN          reduce using rule 29 (F3 -> LBRACKET Lista_Sentencias RBRACKET .)
+    FUNCTION        reduce using rule 29 (F3 -> LBRACKET Lista_Sentencias RBRACKET .)
+    IF              reduce using rule 29 (F3 -> LBRACKET Lista_Sentencias RBRACKET .)
+    $end            reduce using rule 29 (F3 -> LBRACKET Lista_Sentencias RBRACKET .)
+
+
+state 99
+
+    (39) Lista_Sentencias -> Sentencia Lista_Sentencias .
+
+    RBRACKET        reduce using rule 39 (Lista_Sentencias -> Sentencia Lista_Sentencias .)
+
+
+state 100
+
+    (35) Cabecera -> Tipo ID K .
+
+    RPARENT         reduce using rule 35 (Cabecera -> Tipo ID K .)
+
+
+state 101
+
+    (37) K -> COMMA . Tipo ID K
+    (30) Tipo -> . BOOLEAN
+    (31) Tipo -> . NUMBER
+    (32) Tipo -> . STRING
+
+    BOOLEAN         shift and go to state 20
+    NUMBER          shift and go to state 21
+    STRING          shift and go to state 22
+
+    Tipo                           shift and go to state 109
+
+state 102
+
+    (38) K -> empty .
+
+    RPARENT         reduce using rule 38 (K -> empty .)
+
+
+state 103
+
+    (17) S -> ALERT LPARENT E RPARENT SEMICOLON .
+
+    LET             reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+    ID              reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+    ALERT           reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+    INPUT           reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+    RETURN          reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+    FUNCTION        reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+    IF              reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+    $end            reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+    RBRACKET        reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+    ELSE            reduce using rule 17 (S -> ALERT LPARENT E RPARENT SEMICOLON .)
+
+
+state 104
+
+    (18) S -> INPUT LPARENT ID RPARENT SEMICOLON .
+
+    LET             reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+    ID              reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+    ALERT           reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+    INPUT           reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+    RETURN          reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+    FUNCTION        reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+    IF              reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+    $end            reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+    RBRACKET        reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+    ELSE            reduce using rule 18 (S -> INPUT LPARENT ID RPARENT SEMICOLON .)
+
+
+state 105
+
+    (51) V -> ID LPARENT Parametros RPARENT .
+
+    PLUS            reduce using rule 51 (V -> ID LPARENT Parametros RPARENT .)
+    MINUS           reduce using rule 51 (V -> ID LPARENT Parametros RPARENT .)
+    GREATERT        reduce using rule 51 (V -> ID LPARENT Parametros RPARENT .)
+    LESST           reduce using rule 51 (V -> ID LPARENT Parametros RPARENT .)
+    SEMICOLON       reduce using rule 51 (V -> ID LPARENT Parametros RPARENT .)
+    COMMA           reduce using rule 51 (V -> ID LPARENT Parametros RPARENT .)
+    RPARENT         reduce using rule 51 (V -> ID LPARENT Parametros RPARENT .)
+
+
+state 106
+
+    (13) Senten -> LBRACKET Lista_Sentencias RBRACKET .
+
+    LET             reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+    ID              reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+    ALERT           reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+    INPUT           reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+    RETURN          reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+    FUNCTION        reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+    IF              reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+    $end            reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+    RBRACKET        reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+    ELSE            reduce using rule 13 (Senten -> LBRACKET Lista_Sentencias RBRACKET .)
+
+
+state 107
+
+    (9) IF1 -> IF LPARENT E RPARENT Senten .
+
+    ELSE            reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+    LET             reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+    ID              reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+    ALERT           reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+    INPUT           reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+    RETURN          reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+    FUNCTION        reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+    IF              reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+    $end            reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+    RBRACKET        reduce using rule 9 (IF1 -> IF LPARENT E RPARENT Senten .)
+
+
+state 108
+
+    (22) K2 -> COMMA E K2 .
+
+    RPARENT         reduce using rule 22 (K2 -> COMMA E K2 .)
+
+
+state 109
+
+    (37) K -> COMMA Tipo . ID K
+
+    ID              shift and go to state 110
+
+
+state 110
+
+    (37) K -> COMMA Tipo ID . K
+    (37) K -> . COMMA Tipo ID K
+    (38) K -> . empty
+    (54) empty -> .
+
+    COMMA           shift and go to state 101
+    RPARENT         reduce using rule 54 (empty -> .)
+
+    K                              shift and go to state 111
+    empty                          shift and go to state 102
+
+state 111
+
+    (37) K -> COMMA Tipo ID K .
+
+    RPARENT         reduce using rule 37 (K -> COMMA Tipo ID K .)
