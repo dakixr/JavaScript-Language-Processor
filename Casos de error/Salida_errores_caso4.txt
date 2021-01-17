@@ -1,0 +1,2 @@
+ERROR léxico línea: 5 
+Identificador: 'n' ya está declarado

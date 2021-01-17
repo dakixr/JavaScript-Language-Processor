@@ -1,0 +1,5 @@
+Error de sintaxis: linea 4
+< STRING,  >
+
+ERROR léxico línea: 4 
+Identificador: 's' no ha sido declarado

@@ -1,54 +1,67 @@
 < LET,  >
-< NUMBER,  >
-< ID, 0 >
-< SEMICOLON,  >
-< LET,  >
-< NUMBER,  >
-< ID, 1 >
-< SEMICOLON,  >
-< LET,  >
 < BOOLEAN,  >
-< ID, 2 >
+< ID, 0 >
 < SEMICOLON,  >
 < ID, 0 >
 < ASSIGN,  >
-< CONSTNUM, 3 >
-< SEMICOLON,  >
-< ID, 1 >
-< ASSIGN,  >
-< ID, 0 >
-< SEMICOLON,  >
-< LET,  >
-< BOOLEAN,  >
-< ID, 3 >
-< SEMICOLON,  >
-< ID, 3 >
-< ASSIGN,  >
-< ID, 0 >
-< GREATERT,  >
-< ID, 1 >
+< CONSTNUM, 2 >
+< LESST,  >
+< CONSTNUM, 5 >
+< PLUS,  >
+< CONSTNUM, 9 >
 < SEMICOLON,  >
 < IF,  >
 < LPARENT,  >
+< CONSTNUM, 2 >
+< LESST,  >
+< CONSTNUM, 5 >
+< PLUS,  >
+< CONSTNUM, 9 >
+< RPARENT,  >
+< LBRACKET,  >
+< ALERT,  >
+< LPARENT,  >
+< CONSTNUM, 64 >
+< RPARENT,  >
+< SEMICOLON,  >
+< RBRACKET,  >
+< LET,  >
+< STRING,  >
+< ID, 1 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 2 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
 < ID, 3 >
-< RPARENT,  >
-< ID, 1 >
-< REMAINDER,  >
-< CONSTNUM, 3333 >
 < SEMICOLON,  >
-< ID, 0 >
-< ASSIGN,  >
-< ID, 0 >
-< MINUS,  >
-< ID, 1 >
-< SEMICOLON,  >
-< ALERT,  >
+< FUNCTION,  >
+< NUMBER,  >
+< ID, 4 >
 < LPARENT,  >
-< ID, 0 >
+< NUMBER,  >
+< ID, 5 >
 < RPARENT,  >
-< SEMICOLON,  >
-< ALERT,  >
+< LBRACKET,  >
+< IF,  >
 < LPARENT,  >
-< ID, 1 >
+< ID, 5 >
+< LESST,  >
+< CONSTNUM, 0 >
+< RPARENT,  >
+< RETURN,  >
+< CONSTNUM, 1 >
+< SEMICOLON,  >
+< RETURN,  >
+< ID, 5 >
+< PLUS,  >
+< ID, 4 >
+< LPARENT,  >
+< ID, 5 >
+< PLUS,  >
+< CONSTNUM, 1 >
 < RPARENT,  >
 < SEMICOLON,  >
+< RBRACKET,  >

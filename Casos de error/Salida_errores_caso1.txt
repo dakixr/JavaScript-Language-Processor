@@ -1,0 +1,5 @@
+Error semántico linea 11: Se ha llamado a la función 'Factorial' con argumentos incorrectos. Se esperaba: ['ent']. Pero se ha recibido: ['ent', 'cadena'].
+Error semántico linea 16: El tipo de la asignación no coincide con el tipo de la variable.
+Error semántico linea 17: La operación módulo solo se puede hacer con enteros.
+Error semántico linea 19: La comprobación en el if debe ser un boolean.
+Error semántico linea 30: El tipo de retorno 'cadena' no coincide con el esperado 'ent'.

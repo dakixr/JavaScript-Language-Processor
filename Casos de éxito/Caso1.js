@@ -1,11 +1,17 @@
-let number a;
-let number b;
-let boolean bbb;
-a = 3;
-b = a;
-let boolean c;
-c = a > b;
-if (c) b %= 3333;
-a = a - b;
-alert (a);
-alert(b);
+let boolean a;
+
+a = 2 < 5 + 9;
+
+if (2 < 5 + 9){
+	alert(64);
+}
+
+let string s;	
+let number    uno;
+let number    UNO;
+
+function number Factorial (number n)	
+{
+	if (n < 0)	return 1;
+	return n + Factorial (n + 1);	
+}

@@ -2,28 +2,48 @@ TABLA PRINCIPAL # 1:
 
 * LEXEMA : 'a'
 ATRIBUTOS: 
++ Tipo : 'logico'
++ Despl : 0
+
+-------------------------------
+
+* LEXEMA : 's'
+ATRIBUTOS: 
++ Tipo : 'cadena'
++ Despl : 1
+
+-------------------------------
+
+* LEXEMA : 'uno'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 17
+
+-------------------------------
+
+* LEXEMA : 'UNO'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 18
+
+-------------------------------
+
+* LEXEMA : 'Factorial'
+ATRIBUTOS: 
++ Tipo : 'funcion'
++ numParam : 1
++ TipoRetorno : 'ent'
++ EtiqFuncion : 'Factorial1'
++ TipoParam1 : 'ent'
+
+-------------------------------
+
+TABLA Factorial # 2:
+
+* LEXEMA : 'n'
+ATRIBUTOS: 
 + Tipo : 'ent'
 + Despl : 0
 
 -------------------------------
 
-* LEXEMA : 'b'
-ATRIBUTOS: 
-+ Tipo : 'ent'
-+ Despl : 1
-
--------------------------------
-
-* LEXEMA : 'bbb'
-ATRIBUTOS: 
-+ Tipo : 'logico'
-+ Despl : 2
-
--------------------------------
-
-* LEXEMA : 'c'
-ATRIBUTOS: 
-+ Tipo : 'logico'
-+ Despl : 3
-
--------------------------------
