@@ -1,16 +1,47 @@
 import sys
 
-# Tratar el error si no se pasan los argumentos correctos
-if (len(sys.argv) != 2):
-    sys.exit("Error. Incorrect usage: \"python3 main.py source_code.js\"")
 
-import analizador_lexico # Inicializar lexico 
-# Guardar tokens en tokens en tokens.txt
-analizador_lexico.save_tokens()
+print("\n____________________________________________________________________________________")
 
-import analizador_sintactico_semantico # Inicializar analizador sintactico
-analizador_sintactico_semantico.save_parse()
+print('''
+ /$$$$$$$  /$$$$$$$  /$$                            /$$$$$$       /$$$$$$  /$$$$$$$ 
+| $$__  $$| $$__  $$| $$                           /$$__  $$     /$$__  $$| $$____/ 
+| $$  \ $$| $$  \ $$| $$                          | $$  \__/    |__/  \ $$| $$      
+| $$$$$$$/| $$  | $$| $$             /$$$$$$      | $$ /$$$$      /$$$$$$/| $$$$$$$ 
+| $$____/ | $$  | $$| $$            |______/      | $$|_  $$     /$$____/ |_____  $$
+| $$      | $$  | $$| $$                          | $$  \ $$    | $$       /$$  \ $$
+| $$      | $$$$$$$/| $$$$$$$$                    |  $$$$$$/ /$$| $$$$$$$$|  $$$$$$/
+|__/      |_______/ |________/                     \______/ |__/|________/ \______/ 
+''')
 
-# Guardar tablas de simbolos en symbol_table.txt
-import tabla_simbolos as ts
-ts.save_symbol_table()
+print("____________________________________________________________________________________\n")
+
+while True:
+
+    import input_file
+    input_file.init()
+    input_file.get_file()
+
+    import analizador_lexico # Inicializar lexico 
+    analizador_lexico.init()
+    # Guardar tokens en tokens en tokens.txt
+    analizador_lexico.save_tokens()
+
+
+    import analizador_sintactico_semantico # Inicializar analizador sintactico
+    analizador_sintactico_semantico.init()
+    analizador_sintactico_semantico.save_parse()
+
+
+    # Guardar tablas de simbolos en symbol_table.txt
+    import tabla_simbolos as ts
+    ts.save_symbol_table()
+
+    print("------------------------------------------------------------------------------------")
+    print("Tokens generados correctamente.")
+    print("Parse generado correctamente.")
+    print("Tabla de simbolos generada correctamente.")
+    print("____________________________________________________________________________________")
+
+
+

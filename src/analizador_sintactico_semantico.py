@@ -24,8 +24,6 @@ precedence = (
 # Dictionary of names
 # names = { }
 
-errores = []
-
 class Attr():
     """Clase que implemeta el el objeto atributo"""
     def __init__(self, tipo = None, id = None):
@@ -38,7 +36,7 @@ def p_Axioma_prima(p):
     p[0] = Attr(tipo = p[1].tipo)
 
     for err in errores:
-        print("Error semántico " + err)
+        print("Error semántico " + err + "\n")
 
 def p_Axioma_sentencia(p):
     '''Axioma : Sentencia Axioma'''
@@ -416,22 +414,24 @@ def p_error(p):
         pass
 
 ############################################################
+def init():
+    global parse, errores, parser
+    # Secuencia del parse
+    parse = []
 
-# Secuencia del parse
-parse = []
+    # Errores semánticos
+    errores = []
 
-# Crear parser
-yacc.yaccdebug = False # No crear archivo de depuración
-parser = yacc.yacc()
+    # Crear parser
+    yacc.yaccdebug = False # No crear archivo de depuración
+    parser = yacc.yacc()
 
-# Abrir el código fuente
-file_in = open(sys.argv[1], "r")
-source_code = ""
+    # Abrir el código fuente
+    #file_in = open(sys.argv[1], "r")
 
-for line in file_in:
-    source_code += line
-        
-parser.parse(source_code)
+
+    import input_file
+    parser.parse(input_file.source_code)
 
 ############################################################
 

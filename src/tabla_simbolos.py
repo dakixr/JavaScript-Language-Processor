@@ -96,6 +96,9 @@ def get_list_num_params(index):
     n_param = lista_tabla[0][lex]["numParam"]
     lista_param = []
 
+    if type(n_param) is not int:
+        return None, None
+
     for i in range(n_param):
         lista_param.append(lista_tabla[0][lex]["TipoParam" + str(i+1)])
     
@@ -209,7 +212,7 @@ def add_return_type_and_type(index, tipo_retorno):
 def save_symbol_table():
     '''Guardar a un archivo externo "symbol_table.txt" la tabla de simbolos.'''
 
-    file_out = open("symbol_table.txt","w")
+    file_out = open("tabla de simbolos.txt","w")
 
     for i in range(len(lista_tabla)):
 

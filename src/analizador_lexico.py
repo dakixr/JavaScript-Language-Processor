@@ -6,6 +6,7 @@ from ply import lex
 
 # Modo especial para guardar los tokens
 saving_tokens = False
+err = True
 
 # Tipos de tokens
 tokens = ['ID', 'PLUS', 'MINUS', 'LPARENT',      'RPARENT',     'LBRACKET',
@@ -103,7 +104,10 @@ def t_ID(t):
                 index = ts.add_lex(t.value) # Añadir a TS
                 ts.zona_Delaracion = False
             else:
-                sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' ya está declarado" % t.value)
+                #sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' ya está declarado" % t.value)
+                print("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' ya está declarado" % t.value)
+                pass
+
         else:
 
             if (index is None): # No declarado
@@ -119,7 +123,10 @@ def t_ID(t):
                     t.value = index
                     return t
                 
-                sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado" % t.value)
+                #sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado" % t.value)
+                print("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado" % t.value)
+                pass
+
 
         t.value = index
 
@@ -196,7 +203,9 @@ def t_CONSTNUM(t):
     if(number < 65536):
         t.value = number
     else: 
-        sys.exit("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].")  
+        #sys.exit("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].")  
+        print("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].")  
+        t.value = 65535
 
     return t
 
@@ -207,30 +216,41 @@ def t_newline(t):
  
 # Controlar los errores
 def t_error(t):
-    sys.exit("ERROR léxico línea: "+ str(t.lineno)+" \nCarácter ilegal: '%s'" % t.value[0])
+    global lexer, err
+    #sys.exit("ERROR léxico línea: "+ str(t.lineno)+" \nCarácter ilegal: '%s'" % t.value[0])
+    if err:
+        print("ERROR léxico línea: "+ str(t.lineno)+" \nCarácter ilegal: '%s'\n" % t.value[0])
+        err = False
+    else:
+        err = True
+    lexer.skip(1)
+    pass
+    
 
 ############################################################
 
-# Construir el analizador léxico
-lexer = lex.lex()
+def init():
 
-file_in = open(sys.argv[1], "r")
-source_code = ""
+    global lexer, file_out_tokens
 
-for line in file_in:
-    source_code += line
+    # Construir el analizador léxico
+    lexer = lex.lex()
 
-# Proporcionar la entrada para lexer
-lexer.input(source_code)
-        
-# Salida de tokens
-file_out_tokens = open("tokens.txt","w")
+    #file_in = open(sys.argv[1], "r")
+
+    import input_file
+    # Proporcionar la entrada para lexer
+    lexer.input(input_file.source_code)
+            
+    # Salida de tokens
+    file_out_tokens = open("tokens.txt","w")
 
 ############################################################
 
 def get_token():
 
-    global lexer
+    global lexer, file_out_tokens
+
     token = lexer.token()
 
     if not token: 
