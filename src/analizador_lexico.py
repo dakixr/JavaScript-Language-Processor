@@ -105,7 +105,7 @@ def t_ID(t):
                 ts.zona_Delaracion = False
             else:
                 #sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' ya está declarado" % t.value)
-                print("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' ya está declarado" % t.value)
+                print("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' ya está declarado\n" % t.value)
                 pass
 
         else:
@@ -124,7 +124,7 @@ def t_ID(t):
                     return t
                 
                 #sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado" % t.value)
-                print("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado" % t.value)
+                print("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado\n" % t.value)
                 pass
 
 
@@ -204,7 +204,7 @@ def t_CONSTNUM(t):
         t.value = number
     else: 
         #sys.exit("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].")  
-        print("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].")  
+        print("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].\n")  
         t.value = 65535
 
     return t

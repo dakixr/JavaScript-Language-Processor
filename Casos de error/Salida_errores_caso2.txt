@@ -1,3 +1,5 @@
 Error semántico linea 7: Solo se pueden negar booleanos o expresiones booleanas.
+
 Error semántico linea 7: El tipo de la asignación no coincide con el tipo de la variable.
+
 Error semántico linea 20: El tipo de la asignación no coincide con el tipo de la variable.

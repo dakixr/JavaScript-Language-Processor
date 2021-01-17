@@ -1,5 +1,17 @@
 Error de sintaxis: linea 4
 < STRING,  >
 
-ERROR léxico línea: 4 
+ERROR léxico línea: 4
 Identificador: 's' no ha sido declarado
+Error de sintaxis: linea 8
+< RBRACKET,  >
+
+Error semántico linea 6: Solo se pueden comparar dos enteros.
+
+Error semántico linea 6: La comprobación en el if debe ser un boolean.
+
+Error semántico linea 7: Solo se pueden sumar enteros.
+
+Error semántico linea 7: Solo se pueden sumar enteros.
+
+Error semántico linea 7: El tipo de retorno 'tipo_error' no coincide con el esperado 'ent'.

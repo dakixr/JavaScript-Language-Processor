@@ -115,7 +115,7 @@ class PlyLogger(object):
     info = debug
 
     def warning(self, msg, *args, **kwargs):
-        self.f.write('WARNING: ' + (msg % args) + '\n')
+        "#self.f.write('WARNING: ' + (msg % args) + '\n')"
 
     def error(self, msg, *args, **kwargs):
         self.f.write('ERROR: ' + (msg % args) + '\n')
@@ -3433,7 +3433,8 @@ def yacc(method='LALR', debug=yaccdebug, module=None, tabmodule=tab_module, star
 
     # Run the LRGeneratedTable on the grammar
     if debug:
-        errorlog.debug('Generating %s tables', method)
+        "#errorlog.debug('Generating %s tables', method)"
+        
 
     lr = LRGeneratedTable(grammar, method, debuglog)
 
