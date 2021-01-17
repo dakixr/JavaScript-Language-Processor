@@ -8,8 +8,8 @@ import analizador_lexico # Inicializar lexico
 # Guardar tokens en tokens en tokens.txt
 analizador_lexico.save_tokens()
 
-import analizador_sintactico # Inicializar analizador sintactico
-analizador_sintactico.save_parse()
+import analizador_sintactico_semantico # Inicializar analizador sintactico
+analizador_sintactico_semantico.save_parse()
 
 # Guardar tablas de simbolos en symbol_table.txt
 import tabla_simbolos as ts

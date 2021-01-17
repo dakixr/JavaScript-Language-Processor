@@ -207,7 +207,7 @@ def add_return_type_and_type(index, tipo_retorno):
 
 # Crear el fichero resultado de la lista_tabla de símbolos
 def save_symbol_table():
-    '''Guardar a un archivo externo "symbol_table.txt" la tabla de simbolos'''
+    '''Guardar a un archivo externo "symbol_table.txt" la tabla de simbolos.'''
 
     file_out = open("symbol_table.txt","w")
 

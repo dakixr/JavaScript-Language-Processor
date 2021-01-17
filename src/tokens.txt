@@ -1,0 +1,63 @@
+< LET,  >
+< STRING,  >
+< ID, 0 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 1 >
+< SEMICOLON,  >
+< LET,  >
+< BOOLEAN,  >
+< ID, 2 >
+< SEMICOLON,  >
+< ID, 2 >
+< ASSIGN,  >
+< NEGATION,  >
+< ID, 1 >
+< SEMICOLON,  >
+< FUNCTION,  >
+< ID, 3 >
+< LPARENT,  >
+< STRING,  >
+< ID, 4 >
+< RPARENT,  >
+< LBRACKET,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 4 >
+< RPARENT,  >
+< SEMICOLON,  >
+< RBRACKET,  >
+< FUNCTION,  >
+< ID, 5 >
+< LPARENT,  >
+< RPARENT,  >
+< LBRACKET,  >
+< ALERT,  >
+< LPARENT,  >
+< CHAIN, "Introduce un texto" >
+< RPARENT,  >
+< SEMICOLON,  >
+< INPUT,  >
+< LPARENT,  >
+< ID, 0 >
+< RPARENT,  >
+< SEMICOLON,  >
+< RBRACKET,  >
+< ID, 5 >
+< LPARENT,  >
+< RPARENT,  >
+< SEMICOLON,  >
+< LET,  >
+< STRING,  >
+< ID, 6 >
+< SEMICOLON,  >
+< ID, 6 >
+< ASSIGN,  >
+< CONSTNUM, 89 >
+< SEMICOLON,  >
+< ID, 3 >
+< LPARENT,  >
+< ID, 6 >
+< RPARENT,  >
+< SEMICOLON,  >
