@@ -1,0 +1,29 @@
+TABLA PRINCIPAL # 1:
+
+* LEXEMA : 'a'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 0
+
+-------------------------------
+
+* LEXEMA : 'b'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 1
+
+-------------------------------
+
+* LEXEMA : 'bbb'
+ATRIBUTOS: 
++ Tipo : 'logico'
++ Despl : 2
+
+-------------------------------
+
+* LEXEMA : 'c'
+ATRIBUTOS: 
++ Tipo : 'logico'
++ Despl : 3
+
+-------------------------------

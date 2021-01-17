@@ -1,0 +1,73 @@
+< LET,  >
+< NUMBER,  >
+< ID, 0 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 1 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 2 >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< CHAIN, "Introduce el primer operando" >
+< RPARENT,  >
+< SEMICOLON,  >
+< INPUT,  >
+< LPARENT,  >
+< ID, 0 >
+< RPARENT,  >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< CHAIN, "Introduce el segundo operando" >
+< RPARENT,  >
+< SEMICOLON,  >
+< INPUT,  >
+< LPARENT,  >
+< ID, 1 >
+< RPARENT,  >
+< SEMICOLON,  >
+< FUNCTION,  >
+< NUMBER,  >
+< ID, 3 >
+< LPARENT,  >
+< NUMBER,  >
+< ID, 4 >
+< COMMA,  >
+< NUMBER,  >
+< ID, 5 >
+< RPARENT,  >
+< LBRACKET,  >
+< LET,  >
+< NUMBER,  >
+< ID, 6 >
+< SEMICOLON,  >
+< ID, 6 >
+< ASSIGN,  >
+< CONSTNUM, 88 >
+< PLUS,  >
+< ID, 4 >
+< PLUS,  >
+< ID, 5 >
+< SEMICOLON,  >
+< RETURN,  >
+< ID, 6 >
+< SEMICOLON,  >
+< RBRACKET,  >
+< ID, 2 >
+< ASSIGN,  >
+< ID, 3 >
+< LPARENT,  >
+< ID, 0 >
+< COMMA,  >
+< ID, 1 >
+< RPARENT,  >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 2 >
+< RPARENT,  >
+< SEMICOLON,  >

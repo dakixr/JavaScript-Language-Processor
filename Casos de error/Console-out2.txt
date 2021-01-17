@@ -1,4 +1,0 @@
-$ python3 main.py Caso2.js     
-                    
-Error de sintaxis: linea 10            
-< ID, 3 >

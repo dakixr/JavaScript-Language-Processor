@@ -1,0 +1,110 @@
+< LET,  >
+< NUMBER,  >
+< ID, 0 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 1 >
+< SEMICOLON,  >
+< LET,  >
+< BOOLEAN,  >
+< ID, 2 >
+< SEMICOLON,  >
+< LET,  >
+< BOOLEAN,  >
+< ID, 3 >
+< SEMICOLON,  >
+< LET,  >
+< STRING,  >
+< ID, 4 >
+< SEMICOLON,  >
+< INPUT,  >
+< LPARENT,  >
+< ID, 0 >
+< RPARENT,  >
+< SEMICOLON,  >
+< ID, 2 >
+< ASSIGN,  >
+< ID, 3 >
+< SEMICOLON,  >
+< IF,  >
+< LPARENT,  >
+< NEGATION,  >
+< ID, 3 >
+< RPARENT,  >
+< ID, 4 >
+< ASSIGN,  >
+< CHAIN, "hello" >
+< SEMICOLON,  >
+< ID, 1 >
+< REMAINDER,  >
+< ID, 0 >
+< PLUS,  >
+< CONSTNUM, 378 >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< CONSTNUM, 33 >
+< PLUS,  >
+< ID, 0 >
+< PLUS,  >
+< ID, 1 >
+< RPARENT,  >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< CHAIN, "PdL" >
+< RPARENT,  >
+< SEMICOLON,  >
+< INPUT,  >
+< LPARENT,  >
+< ID, 5 >
+< RPARENT,  >
+< SEMICOLON,  >
+< FUNCTION,  >
+< BOOLEAN,  >
+< ID, 6 >
+< LPARENT,  >
+< BOOLEAN,  >
+< ID, 7 >
+< RPARENT,  >
+< LBRACKET,  >
+< ID, 3 >
+< ASSIGN,  >
+< NEGATION,  >
+< ID, 2 >
+< SEMICOLON,  >
+< IF,  >
+< LPARENT,  >
+< ID, 3 >
+< RPARENT,  >
+< ID, 2 >
+< ASSIGN,  >
+< ID, 6 >
+< LPARENT,  >
+< ID, 7 >
+< RPARENT,  >
+< SEMICOLON,  >
+< ID, 8 >
+< ASSIGN,  >
+< CONSTNUM, 888 >
+< SEMICOLON,  >
+< RETURN,  >
+< LPARENT,  >
+< ID, 7 >
+< RPARENT,  >
+< SEMICOLON,  >
+< RBRACKET,  >
+< IF,  >
+< LPARENT,  >
+< ID, 6 >
+< LPARENT,  >
+< NEGATION,  >
+< ID, 2 >
+< RPARENT,  >
+< RPARENT,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 8 >
+< RPARENT,  >
+< SEMICOLON,  >

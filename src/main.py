@@ -6,7 +6,7 @@ if (len(sys.argv) != 2):
 
 import analizador_lexico # Inicializar lexico 
 # Guardar tokens en tokens en tokens.txt
-# analizador_lexico.save_tokens()
+analizador_lexico.save_tokens()
 
 import analizador_sintactico # Inicializar analizador sintactico
 analizador_sintactico.save_parse()

@@ -8,6 +8,23 @@ number_etiq_func = 1
 
 lista_tabla[0]["1"] = { "desplazamiento": 0 } # Aqui se guarda el desplazamiento local
 
+def restore_state():
+    '''Devolver la tabla de simbolos a su estado incicial.'''
+
+    global lista_tabla, lista_nombres_tabla
+    global ultimo_indice, indice_tablas
+    global zona_Delaracion, zona_Input
+    global number_etiq_func
+
+    lista_tabla = [{}]
+    lista_nombres_tabla = ["PRINCIPAL"]
+    ultimo_indice = 0
+    indice_tablas = [0]
+    zona_Delaracion = False
+    zona_Input = False
+    number_etiq_func = 1
+
+    lista_tabla[0]["1"] = { "desplazamiento": 0 } # Aqui se guarda el desplazamiento local
 
 def get_index(lex, var_local = False):
     '''Devolver el index del identidficador'''

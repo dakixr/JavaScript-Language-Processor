@@ -1,0 +1,174 @@
+< LET,  >
+< STRING,  >
+< ID, 0 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 1 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 2 >
+< SEMICOLON,  >
+< FUNCTION,  >
+< NUMBER,  >
+< ID, 3 >
+< LPARENT,  >
+< NUMBER,  >
+< ID, 4 >
+< RPARENT,  >
+< LBRACKET,  >
+< IF,  >
+< LPARENT,  >
+< ID, 4 >
+< LESST,  >
+< CONSTNUM, 0 >
+< RPARENT,  >
+< RETURN,  >
+< CONSTNUM, 1 >
+< SEMICOLON,  >
+< RETURN,  >
+< ID, 4 >
+< PLUS,  >
+< ID, 3 >
+< LPARENT,  >
+< ID, 4 >
+< PLUS,  >
+< CONSTNUM, 1 >
+< RPARENT,  >
+< SEMICOLON,  >
+< RBRACKET,  >
+< LET,  >
+< NUMBER,  >
+< ID, 5 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 6 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 7 >
+< SEMICOLON,  >
+< FUNCTION,  >
+< ID, 8 >
+< LPARENT,  >
+< STRING,  >
+< ID, 0 >
+< COMMA,  >
+< STRING,  >
+< ID, 9 >
+< COMMA,  >
+< NUMBER,  >
+< ID, 10 >
+< RPARENT,  >
+< LBRACKET,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 0 >
+< RPARENT,  >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 9 >
+< RPARENT,  >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 10 >
+< RPARENT,  >
+< SEMICOLON,  >
+< RETURN,  >
+< SEMICOLON,  >
+< RBRACKET,  >
+< FUNCTION,  >
+< STRING,  >
+< ID, 11 >
+< LPARENT,  >
+< BOOLEAN,  >
+< ID, 12 >
+< RPARENT,  >
+< LBRACKET,  >
+< IF,  >
+< LPARENT,  >
+< NEGATION,  >
+< ID, 12 >
+< RPARENT,  >
+< LBRACKET,  >
+< ID, 8 >
+< LPARENT,  >
+< ID, 0 >
+< COMMA,  >
+< CHAIN, "hola" >
+< COMMA,  >
+< CONSTNUM, 33 >
+< RPARENT,  >
+< SEMICOLON,  >
+< IF,  >
+< LPARENT,  >
+< ID, 1 >
+< LESST,  >
+< ID, 2 >
+< RPARENT,  >
+< RETURN,  >
+< LPARENT,  >
+< ID, 0 >
+< RPARENT,  >
+< SEMICOLON,  >
+< RBRACKET,  >
+< ELSE,  >
+< LBRACKET,  >
+< RETURN,  >
+< CHAIN, "Fin" >
+< SEMICOLON,  >
+< RBRACKET,  >
+< RBRACKET,  >
+< ID, 0 >
+< ASSIGN,  >
+< CHAIN, "El factorial " >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 0 >
+< RPARENT,  >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< CHAIN, "Introduce un numero." >
+< RPARENT,  >
+< SEMICOLON,  >
+< INPUT,  >
+< LPARENT,  >
+< ID, 13 >
+< RPARENT,  >
+< SEMICOLON,  >
+< LET,  >
+< BOOLEAN,  >
+< ID, 14 >
+< SEMICOLON,  >
+< IF,  >
+< LPARENT,  >
+< ID, 13 >
+< LESST,  >
+< CONSTNUM, 0 >
+< RPARENT,  >
+< ALERT,  >
+< LPARENT,  >
+< CHAIN, "No existe el factorial de un negativo." >
+< RPARENT,  >
+< SEMICOLON,  >
+< ID, 8 >
+< LPARENT,  >
+< ID, 11 >
+< LPARENT,  >
+< ID, 14 >
+< RPARENT,  >
+< COMMA,  >
+< CHAIN, "recursivo es: " >
+< COMMA,  >
+< ID, 3 >
+< LPARENT,  >
+< ID, 13 >
+< RPARENT,  >
+< RPARENT,  >
+< SEMICOLON,  >

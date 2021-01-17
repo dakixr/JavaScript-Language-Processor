@@ -1,0 +1,50 @@
+< LET,  >
+< STRING,  >
+< ID, 0 >
+< SEMICOLON,  >
+< FUNCTION,  >
+< ID, 1 >
+< LPARENT,  >
+< STRING,  >
+< ID, 2 >
+< RPARENT,  >
+< LBRACKET,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 2 >
+< RPARENT,  >
+< SEMICOLON,  >
+< RBRACKET,  >
+< FUNCTION,  >
+< ID, 3 >
+< LPARENT,  >
+< RPARENT,  >
+< LBRACKET,  >
+< ALERT,  >
+< LPARENT,  >
+< CHAIN, "Introduce un texto" >
+< RPARENT,  >
+< SEMICOLON,  >
+< INPUT,  >
+< LPARENT,  >
+< ID, 0 >
+< RPARENT,  >
+< SEMICOLON,  >
+< RBRACKET,  >
+< ID, 3 >
+< LPARENT,  >
+< RPARENT,  >
+< SEMICOLON,  >
+< LET,  >
+< STRING,  >
+< ID, 4 >
+< SEMICOLON,  >
+< ID, 4 >
+< ASSIGN,  >
+< ID, 0 >
+< SEMICOLON,  >
+< ID, 1 >
+< LPARENT,  >
+< ID, 4 >
+< RPARENT,  >
+< SEMICOLON,  >

@@ -1,0 +1,54 @@
+< LET,  >
+< NUMBER,  >
+< ID, 0 >
+< SEMICOLON,  >
+< LET,  >
+< NUMBER,  >
+< ID, 1 >
+< SEMICOLON,  >
+< LET,  >
+< BOOLEAN,  >
+< ID, 2 >
+< SEMICOLON,  >
+< ID, 0 >
+< ASSIGN,  >
+< CONSTNUM, 3 >
+< SEMICOLON,  >
+< ID, 1 >
+< ASSIGN,  >
+< ID, 0 >
+< SEMICOLON,  >
+< LET,  >
+< BOOLEAN,  >
+< ID, 3 >
+< SEMICOLON,  >
+< ID, 3 >
+< ASSIGN,  >
+< ID, 0 >
+< GREATERT,  >
+< ID, 1 >
+< SEMICOLON,  >
+< IF,  >
+< LPARENT,  >
+< ID, 3 >
+< RPARENT,  >
+< ID, 1 >
+< REMAINDER,  >
+< CONSTNUM, 3333 >
+< SEMICOLON,  >
+< ID, 0 >
+< ASSIGN,  >
+< ID, 0 >
+< MINUS,  >
+< ID, 1 >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 0 >
+< RPARENT,  >
+< SEMICOLON,  >
+< ALERT,  >
+< LPARENT,  >
+< ID, 1 >
+< RPARENT,  >
+< SEMICOLON,  >

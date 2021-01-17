@@ -1,0 +1,57 @@
+TABLA PRINCIPAL # 1:
+
+* LEXEMA : 'a'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 0
+
+-------------------------------
+
+* LEXEMA : 'b'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 1
+
+-------------------------------
+
+* LEXEMA : 'int'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 2
+
+-------------------------------
+
+* LEXEMA : 'operacion'
+ATRIBUTOS: 
++ Tipo : 'funcion'
++ numParam : 2
++ TipoRetorno : 'ent'
++ EtiqFuncion : 'operacion1'
++ TipoParam1 : 'ent'
++ TipoParam2 : 'ent'
+
+-------------------------------
+
+TABLA operacion # 2:
+
+* LEXEMA : 'num1'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 0
+
+-------------------------------
+
+* LEXEMA : 'num2'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 1
+
+-------------------------------
+
+* LEXEMA : 'res'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 2
+
+-------------------------------
+

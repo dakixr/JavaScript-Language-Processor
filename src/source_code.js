@@ -1,15 +1,6 @@
-let number a;
-let number b;
-let number int;
-alert ('Introduce el primer operando');
-input (a);
-alert ('Introduce el segundo operando');
-input (b);
-function number operacion (number num1, number num2)
-{
-	let number res;
-	res = 88 + num1+num2;
-	return res;
+let boolean a;
+a = 2 < 5 + 9;
+
+if (2 < 5 + 9){
+	alert(64);
 }
-int = operacion (a, b);
-alert (int);

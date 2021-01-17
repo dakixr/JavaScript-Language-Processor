@@ -1,0 +1,70 @@
+TABLA PRINCIPAL # 1:
+
+* LEXEMA : 'n1'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 0
+
+-------------------------------
+
+* LEXEMA : 'n2'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 1
+
+-------------------------------
+
+* LEXEMA : 'l1'
+ATRIBUTOS: 
++ Tipo : 'logico'
++ Despl : 2
+
+-------------------------------
+
+* LEXEMA : 'l2'
+ATRIBUTOS: 
++ Tipo : 'logico'
++ Despl : 3
+
+-------------------------------
+
+* LEXEMA : 'cad'
+ATRIBUTOS: 
++ Tipo : 'cadena'
++ Despl : 4
+
+-------------------------------
+
+* LEXEMA : 'esto_es_un_nombre_de_variable_global_de_tipo_entero'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 20
+
+-------------------------------
+
+* LEXEMA : 'ff'
+ATRIBUTOS: 
++ Tipo : 'funcion'
++ numParam : 1
++ TipoRetorno : 'logico'
++ EtiqFuncion : 'ff1'
++ TipoParam1 : 'logico'
+
+-------------------------------
+
+* LEXEMA : 'varglobal'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 1
+
+-------------------------------
+
+TABLA ff # 2:
+
+* LEXEMA : 'ss'
+ATRIBUTOS: 
++ Tipo : 'logico'
++ Despl : 0
+
+-------------------------------
+

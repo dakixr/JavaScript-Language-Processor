@@ -4,6 +4,9 @@ import copy
 
 from ply import lex
 
+# Modo especial para guardar los tokens
+saving_tokens = False
+
 # Tipos de tokens
 tokens = ['ID', 'PLUS', 'MINUS', 'LPARENT',      'RPARENT',     'LBRACKET',
           'RBRACKET',     'ASSIGN',    'COMMA',     'SEMICOLON',   'LESST', 
@@ -54,6 +57,7 @@ def t_ID(t):
     r'[a-zA-Z_][a-zA-Z0-9_]*' 
 
     global lexer
+    global saving_tokens
 
     if t.value in reservadas:
 
@@ -63,8 +67,8 @@ def t_ID(t):
         if(t.value == "function" or t.value == "let"):
             ts.zona_Delaracion = True
 
-        t.type = t.value.upper()
-        #t.type = reservadas[t.value]
+        #t.type = t.value.upper()
+        t.type = reservadas[t.value]
         t.value = ''
 
     else:
@@ -73,7 +77,15 @@ def t_ID(t):
 
         #print("añadiendo id: " + str(t.value))
 
-        if(ts.zona_Input):
+        if saving_tokens:
+
+            if (index is None): # No declarado
+                index = ts.add_lex(t.value) # Añadir a TS
+
+            t.value = index
+            return t
+
+        if ts.zona_Input:
 
             ts.zona_Input = False
 
@@ -83,7 +95,7 @@ def t_ID(t):
             t.value = index
             return t
 
-        if (ts.zona_Delaracion):
+        if ts.zona_Delaracion:
 
             index = ts.get_index(t.value, var_local = True)
             
@@ -91,7 +103,6 @@ def t_ID(t):
                 index = ts.add_lex(t.value) # Añadir a TS
                 ts.zona_Delaracion = False
             else:
-
                 sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' ya está declarado" % t.value)
         else:
 
@@ -232,9 +243,18 @@ def get_token():
     return token
 
 def save_tokens():
-     while True:
+
+    global saving_tokens
+
+    saving_tokens = True
+
+    while True:
         token = get_token() # obtener los tokens e introducirlos en un fichero 
         # (tok.type, tok.value, tok.lineno, tok.lexpos) # Atributos de tok
 
         if not token:
             break
+    
+    saving_tokens = False
+    ts.restore_state()
+    

@@ -1,4 +1,0 @@
-$ python3 main.py Caso1.js     
-                    
-Error de sintaxis: linea 3            
-< RPARENT,  >

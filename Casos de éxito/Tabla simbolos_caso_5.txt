@@ -1,0 +1,131 @@
+TABLA PRINCIPAL # 1:
+
+* LEXEMA : 's'
+ATRIBUTOS: 
++ Tipo : 'cadena'
++ Despl : 0
+
+-------------------------------
+
+* LEXEMA : 'uno'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 16
+
+-------------------------------
+
+* LEXEMA : 'UNO'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 17
+
+-------------------------------
+
+* LEXEMA : 'Factorial'
+ATRIBUTOS: 
++ Tipo : 'funcion'
++ numParam : 1
++ TipoRetorno : 'ent'
++ EtiqFuncion : 'Factorial1'
++ TipoParam1 : 'ent'
+
+-------------------------------
+
+* LEXEMA : 'For'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 18
+
+-------------------------------
+
+* LEXEMA : 'functional'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 19
+
+-------------------------------
+
+* LEXEMA : 'While'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 20
+
+-------------------------------
+
+* LEXEMA : 'print'
+ATRIBUTOS: 
++ Tipo : 'funcion'
++ numParam : 3
++ TipoRetorno : 'void'
++ EtiqFuncion : 'print2'
++ TipoParam1 : 'cadena'
++ TipoParam2 : 'cadena'
++ TipoParam3 : 'ent'
+
+-------------------------------
+
+* LEXEMA : 'cadena'
+ATRIBUTOS: 
++ Tipo : 'funcion'
++ numParam : 1
++ TipoRetorno : 'cadena'
++ EtiqFuncion : 'cadena3'
++ TipoParam1 : 'logico'
+
+-------------------------------
+
+* LEXEMA : 'num'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 21
+
+-------------------------------
+
+* LEXEMA : 'booleano'
+ATRIBUTOS: 
++ Tipo : 'logico'
++ Despl : 22
+
+-------------------------------
+
+TABLA Factorial # 2:
+
+* LEXEMA : 'n'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 0
+
+-------------------------------
+
+TABLA print # 3:
+
+* LEXEMA : 's'
+ATRIBUTOS: 
++ Tipo : 'cadena'
++ Despl : 0
+
+-------------------------------
+
+* LEXEMA : 'msg'
+ATRIBUTOS: 
++ Tipo : 'cadena'
++ Despl : 16
+
+-------------------------------
+
+* LEXEMA : 'f'
+ATRIBUTOS: 
++ Tipo : 'ent'
++ Despl : 32
+
+-------------------------------
+
+TABLA cadena # 4:
+
+* LEXEMA : 'log'
+ATRIBUTOS: 
++ Tipo : 'logico'
++ Despl : 0
+
+-------------------------------
+
