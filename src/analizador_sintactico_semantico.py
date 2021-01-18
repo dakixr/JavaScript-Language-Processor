@@ -33,7 +33,7 @@ class Attr():
 def p_Axioma_prima(p):
     '''Axioma_ : Axioma'''
     parse.append(1)
-    p[0] = Attr(tipo = p[1].tipo)
+    p[0] = Attr(tipo = str(p[1].tipo))
 
     for err in errores:
         print("Error semántico " + err + "\n")
@@ -42,17 +42,17 @@ def p_Axioma_sentencia(p):
     '''Axioma : Sentencia Axioma'''
     parse.append(2)
     if (p[2].tipo == "void"):
-        p[0] = Attr(tipo = p[1].tipo)
+        p[0] = Attr(tipo = str(p[1].tipo))
     else:
-        p[0] = Attr(tipo = (p[1].tipo + "," + p[2].tipo))
+        p[0] = Attr(tipo = (str(p[1].tipo) + "," + str(p[2].tipo)))
 
 def p_Axioma_funcion(p):
     '''Axioma : Funcion Axioma'''
     parse.append(3)
     if (p[2].tipo == "void"):
-        p[0] = Attr(tipo = p[1].tipo)
+        p[0] = Attr(tipo = str(p[1].tipo))
     else:
-        p[0] = Attr(tipo = (p[1].tipo + "," + p[2].tipo))
+        p[0] = Attr(tipo = (str(p[1].tipo) + "," + str(p[2].tipo)))
 
 def p_Axioma_empty(p):
     '''Axioma : empty'''
@@ -62,12 +62,12 @@ def p_Axioma_empty(p):
 def p_Sentencia_S(p):
     '''Sentencia : S'''
     parse.append(5)
-    p[0] = Attr(tipo = p[1].tipo)
+    p[0] = Attr(tipo = str(p[1].tipo))
 
 def p_Sentencia_IF(p):
     '''Sentencia : IF_'''
     parse.append(6)
-    p[0] = Attr(tipo = p[1].tipo)
+    p[0] = Attr(tipo = str(p[1].tipo))
 
 def p_Sentencia_tipo_id(p):
     '''Sentencia : LET Tipo ID SEMICOLON'''
@@ -92,7 +92,7 @@ def p_IF1(p):
 def p_IF2(p):
     '''IF2 : ELSE Senten'''
     parse.append(10)
-    p[0] = Attr(tipo = p[2].tipo)
+    p[0] = Attr(tipo = str(p[2].tipo))
 
 def p_IF2_empty(p):
     '''IF2 : empty'''
@@ -102,12 +102,12 @@ def p_IF2_empty(p):
 def p_Senten(p):
     '''Senten : Sentencia'''
     parse.append(12)
-    p[0] = Attr(tipo = p[1].tipo)
+    p[0] = Attr(tipo = str(p[1].tipo))
 
 def p_Senten_Lista(p):
     '''Senten : LBRACKET Lista_Sentencias RBRACKET'''
     parse.append(13)
-    p[0] = Attr(tipo = p[2].tipo)
+    p[0] = Attr(tipo = str(p[2].tipo))
 
 def p_S_Asignacion(p):
     '''S : ID ASSIGN E SEMICOLON'''
@@ -179,15 +179,15 @@ def p_S_Return(p):
     p[0] = Attr(tipo = "tipo_ok") if p[2].tipo == ts.get_return_type(ts.get_curr_function()) else Attr(tipo = "tipo_error")
 
     if p[0].tipo == "tipo_error":
-        errores.append("linea " + str(p.lineno(1)) + ": El tipo de retorno '"+p[2].tipo+"' no coincide con el esperado '"+ts.get_return_type(ts.get_curr_function())+"'.")
+        errores.append("linea " + str(p.lineno(1)) + ": El tipo de retorno '" + str(p[2].tipo) + "' no coincide con el esperado '" + str(ts.get_return_type(ts.get_curr_function())) + "'.")
 
 def p_Parametros_E_K2(p):
     '''Parametros : E K2'''
     parse.append(20)
     if (p[2].tipo == "void"):
-        p[0] = Attr(tipo = p[1].tipo)
+        p[0] = Attr(tipo = str(p[1].tipo))
     else:
-        p[0] = Attr(tipo = (p[1].tipo + "," + p[2].tipo))
+        p[0] = Attr(tipo = (str(p[1].tipo) + "," + str(p[2].tipo)))
 
 def p_Parametros_lambda(p):
     '''Parametros : empty'''
@@ -198,9 +198,9 @@ def p_K2_comma(p):
     '''K2 : COMMA E K2'''
     parse.append(22)
     if (p[3].tipo == "void"):
-        p[0] = Attr(tipo = p[2].tipo)
+        p[0] = Attr(tipo = str(p[2].tipo))
     else:
-        p[0] = Attr(tipo = (p[2].tipo + "," + p[3].tipo))
+        p[0] = Attr(tipo = (str(p[2].tipo) + "," + str(p[3].tipo)))
 
 def p_K2_lambda(p):
     '''K2 : empty'''
@@ -210,7 +210,7 @@ def p_K2_lambda(p):
 def p_X(p):
     '''X : E'''
     parse.append(24)
-    p[0] = Attr(tipo = p[1].tipo)
+    p[0] = Attr(tipo = str(p[1].tipo))
 
 def p_X_lambda(p):
     '''X : empty'''
@@ -220,7 +220,7 @@ def p_X_lambda(p):
 def p_Funcion(p):
     '''Funcion : F1 F2 F3'''
     parse.append(26)
-    p[0] = Attr(tipo = p[3].tipo)
+    p[0] = Attr(tipo = str(p[3].tipo))
     ts.add_tipo_num_parametros(p[1].id,p[2].tipo)
     ts.borrar_current_tabla()
     #ts.zona_Delaracion = False
@@ -228,7 +228,7 @@ def p_Funcion(p):
 def p_F1(p):
     '''F1 : FUNCTION Tipo_B ID'''
     parse.append(27)
-    p[0] = Attr(tipo = p[2].tipo, id = p[3])
+    p[0] = Attr(tipo = str(p[2].tipo), id = p[3])
     ts.add_return_type_and_type(p[3], p[2].tipo)
     ts.crear_tabla(ts.get_lex(p[3]))
 
@@ -279,7 +279,7 @@ def p_Cabecera_Tipo(p):
         p[0] = Attr(tipo = p[1].tipo, id = p[2])
         ts.add_tipo_desplazamiento(p[2], p[1].tipo)
     else:
-        p[0] = Attr(tipo = (p[1].tipo + "," + p[3].tipo), id = (str(p[2]) + "," + str(p[3].id)))
+        p[0] = Attr(tipo = (str(p[1].tipo) + "," + str(p[3].tipo)), id = (str(p[2]) + "," + str(p[3].id)))
 
         list_tipos = p[0].tipo.split(",")
             
@@ -297,7 +297,7 @@ def p_K(p):
     '''K : COMMA Tipo ID K'''
     parse.append(37)
     if (p[4].tipo == "void"):
-        p[0] = Attr(tipo = p[2].tipo, id = p[3])
+        p[0] = Attr(tipo = str(p[2].tipo), id = p[3])
     else:
         p[0] = Attr(tipo = (p[2].tipo + "," + p[4].tipo), id = (str(p[3]) + "," + str(p[4].id)))
 
@@ -327,7 +327,7 @@ def p_E(p):
 def p_E1(p):
     '''E : R'''
     parse.append(42)
-    p[0] = Attr(tipo = p[1].tipo)
+    p[0] = Attr(tipo = str(p[1].tipo))
 
 def p_R(p):
     '''R : R GREATERT U'''
@@ -349,7 +349,7 @@ def p_R1(p):
 def p_R2(p):
     '''R : U'''
     parse.append(45)
-    p[0] = Attr(tipo = p[1].tipo)
+    p[0] = Attr(tipo = str(p[1].tipo))
 
 def p_U(p):
     '''U : U PLUS V'''
@@ -375,17 +375,17 @@ def p_U_V(p):
 def p_V(p):
     '''V : ID'''
     parse.append(49)
-    p[0] = Attr(tipo = ts.get_tipo(p[1]))
+    p[0] = Attr(tipo = str(ts.get_tipo(p[1])))
 
 def p_V1(p):
     '''V : LPARENT E RPARENT'''
     parse.append(50)
-    p[0] = Attr(tipo = p[2].tipo)
+    p[0] = Attr(tipo = str(p[2].tipo))
 
 def p_V2(p):
     '''V : ID LPARENT Parametros RPARENT'''
     parse.append(51)
-    p[0] = Attr(tipo = ts.get_return_type(p[1]))
+    p[0] = Attr(tipo = str(ts.get_return_type(p[1])))
 
 def p_V3(p):
     '''V : CONSTNUM'''
