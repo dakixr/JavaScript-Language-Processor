@@ -1,0 +1,64 @@
+Axioma = Axioma_
+
+NoTerminales = { Axioma_ Axioma Sentencia Senten Lista_Sentencias Funcion IF1 IF2 F1 F2 F3 Cabecera Parametros K K2 IF_ ELSE_ S X E R U V Tipo Tipo_B }
+
+Terminales = { id ent cadena + - ! = %= ( ) { } , ; < > if else function alert input number let return string boolean }
+	
+
+Producciones = {
+
+Axioma_ -> Axioma 
+Axioma -> Sentencia Axioma
+Axioma -> Funcion Axioma
+Axioma -> lambda
+Sentencia -> S
+Sentencia -> IF_
+Sentencia -> let Tipo id ;
+IF_ -> IF1 IF2
+IF1 -> if ( E ) Senten
+IF2 -> else Senten
+IF2 -> lambda
+Senten -> Sentencia
+Senten -> { Lista_Sentencias }
+S -> id = E ;
+S -> id %= E ;
+S -> id ( Parametros ) ;
+S -> alert ( E ) ;
+S -> input ( id ) ;
+S -> return X ;
+Parametros -> E K2
+Parametros -> lambda
+K2 -> , E K2
+K2 -> lambda
+X -> E
+X -> lambda
+Funcion -> F1 F2 F3
+F1 -> function Tipo_B id
+F2 -> ( Cabecera )
+F3 -> { Lista_Sentencias }
+Tipo -> boolean
+Tipo -> number
+Tipo -> string
+Tipo_B -> Tipo
+Tipo_B -> lambda
+Cabecera -> Tipo id K 
+Cabecera -> lambda
+K -> , Tipo id K
+K -> lambda
+Lista_Sentencias -> Sentencia Lista_Sentencias 
+Lista_Sentencias -> lambda
+E -> ! V
+E -> R
+R -> R > U 
+R -> R < U
+R -> U
+U -> U + V
+U -> U - V
+U -> V
+V -> id 
+V -> ( E )
+V -> id ( Parametros )
+V -> ent
+V -> cadena
+
+}

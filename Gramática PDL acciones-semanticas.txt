@@ -1,0 +1,54 @@
+Axioma_ -> Axioma               {Axioma_.tipo := Axioma.tipo}
+Axioma -> Sentencia Axioma      {if (Axioma.tipo = void) then Axioma.tipo := Sentencia.tipo; else Axioma.tipo := Sentencia.tipo x Axioma.tipo}
+Axioma -> Funcion Axioma        {if (Axioma.tipo = void) then Axioma.tipo := Funcion.tipo; else Axioma.tipo := Funcion.tipo x Axioma.tipo}
+Axioma -> lambda                {Axioma.tipo := void}
+Sentencia -> S                  {Sentencia.tipo := S.tipo}
+Sentencia -> IF_                {Sentencia.tipo := IF_.tipo}
+Sentencia -> let Tipo id ;      {insertarTipo(id.pos, Tipo.tipo); insertarDespl(id.pos, desp); desp := desp + Tipo.ancho; ZD = False}
+IF_ -> IF1 IF2                  {if (IF1.tipo = tipo_ok AND (IF2.tipo = tipo_ok OR IF2.tipo = void)) then IF_.tipo := tipo_ok; else IF_.tipo := tipo_error}
+IF1 -> if ( E ) Senten          {IF1.tipo := if(E.tipo = logico AND Senten.tipo = tipo_ok) then tipo_ok; else tipo_error}
+IF2 -> else Senten              {IF2.tipo := Senten.tipo}
+IF2 -> lambda                   {IF.tipo := void}
+Senten -> Sentencia             {Senten.tipo := Sentencia.tipo}
+Senten -> { Lista_Sentencias }  {Senten.tipo := Lista_Sentencias.tipo}
+S -> id = E ;                   {if (obtenerTipo(id.pos) = E.tipo) then S.tipo := tipo_ok; else S.tipo := tipo_error}
+S -> id %= E ;                  {if (obtenerTipo(id.pos) = E.tipo AND E.tipo = ent) then S.tipo := tipo_ok; else S.tipo := tipo_error}
+S -> id ( Parametros ) ;        {S.tipo := if (Parametros.tipo.length = buscaNumParam(id.pos) AND Parametros.tipo = buscarParamTipo(id.pos)) then tipo_ok; else tipo_error}
+S -> alert ( E ) ;              {if (E.tipo = ent OR E.tipo = cadena) then S.tipo := tipo_ok; else S.tipo := tipo_error}           
+S -> input ( id ) ;             {if (id.tipo = ent OR id.tipo = cadena) then S.tipo := tipo_ok; else S.tipo := tipo_error} 
+S -> return X ;                 {if (X.tipo = obtenerTipoRet(id.pos)) then S.tipo := tipo_ok; else S.tipo := tipo_error}
+Parametros -> E K2              {if (K2.tipo = void) then Parametros.tipo := E.tipo ; else Parametros.tipo := E.tipo x K2.tipo}
+Parametros -> lambda            {Parametros.tipo := void}
+K2 -> , E K2                    {if (K2.tipo = void) then K2.tipo := E.tipo; else K2.tipo := E.tipo x K2.tipo}
+K2 -> lambda                    {K2.tipo := void}
+X -> E                          {X.tipo := E.tipo}                    
+X -> lambda                     {X.tipo := void}
+Funcion -> F1 F2 F3             {insertarTipoParams(id.pos, F2.tipo); F.tipo = F3.tipo; borrar_tabla_actual(); ZD =  False}
+F1 -> function Tipo_B id        {insertarTipoRetorno(id.pos, Tipo_B.tipo); F1.tipo := Tipo_B.tipo, crearTablaFun()}
+F2 -> ( Cabecera )              {F2.tipo := Cabecera.tipo; ZD = False}
+F3 -> { Lista_Sentencias }      {F3.tipo := Lista_Sentencias.tipo}
+Tipo -> boolean                 {Tipo.tipo := logico, ZD = True}
+Tipo -> number                  {Tipo.tipo := ent, ZD = True}
+Tipo -> string                  {Tipo.tipo := cadena, ZD = True}
+Tipo_B -> Tipo                  {Tipo_B.tipo := Tipo.tipo}
+Tipo_B -> lambda                {Tipo_B.tipo := void}
+Cabecera -> Tipo id K           {Cabecera.tipo := if (K.tipo = void) then Cabecera.tipo = Tipo.tipo; else Tipo.tipo x K.tipo; insertarTipo_desp(id,tipo.tipo,tipo.desp)}
+Cabecera -> lambda              {Cabecera.tipo := void}
+K -> , Tipo id K                {K.tipo := if (K.tipo = void) then K.tipo = Tipo.tipo; else K.tipo = Tipo.tipo x K.tipo, añadir_tipo_desp(id,tipo)}
+K -> lambda                     {K.tipo := void}
+Lista_Sentencias -> Sentencia Lista_Sentencias {if (Sentencia.tipo and Lista_Sentencias.tipo != tipo_error) Lista_Sentencias = tipo_ok else tipo_error}
+Lista_Sentencias -> lambda      {Lista_Sentencias.tipo := void}
+E -> ! V                        {if (V.tipo = logico) then E.tipo := logico; else E.tipo := tipo_error}
+E -> R                          {E.tipo := R.tipo}
+R -> R > U                      {if (R.tipo = U.tipo AND R.tipo = ent) then R.tipo := logico; else R.tipo := tipo_error}
+R -> R < U                      {if (R.tipo = U.tipo AND R.tipo = ent) then R.tipo := logico; else R.tipo := tipo_error}
+R -> U                          {R.tipo := U.tipo}      
+U -> U + V                      {if (U.tipo = V.tipo AND U.tipo = ent) then U.tipo := ent; else U.tipo := tipo_error}
+U -> U - V                      {if (U.tipo = V.tipo AND U.tipo = ent) then U.tipo := ent; else U.tipo := tipo_error}
+U -> V                          {U.tipo := V.tipo}
+V -> id                         {V.tipo := obtenerTipo(id.pos)}
+V -> ( E )                      {V.tipo := E.tipo}
+V -> id ( Parametros )          {V.tipo := obtenerTipoRet(id.pos)}
+V -> ent                        {V.tipo := ent}
+V -> cadena                     {V.tipo := cadena}          
+
