@@ -19,6 +19,8 @@ while True:
     input_file.init()
     input_file.get_file()
 
+    print("+ Archivo procesado: '" + str(input_file.file_in.name) + "'\n")
+
     import analizador_lexico # Inicializar lexico 
     analizador_lexico.init()
     # Guardar tokens en tokens en tokens.txt
