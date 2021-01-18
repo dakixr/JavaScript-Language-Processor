@@ -151,7 +151,7 @@ def p_S_Funcion(p):
     p[0] = Attr(tipo = ret)
 
     if p[0].tipo == "tipo_error":
-        errores.append("linea " + str(p.lineno(1)) + ": Se ha llamado a la función '" + ts.get_lex(p[1]) + "' con argumentos incorrectos. Se esperaba: " + str(param_list_table) + ". Pero se ha recibido: "+ str(param_list_caller)+".")
+        errores.append("linea " + str(p.lineno(1)) + ": Se ha llamado a la función '" + str(ts.get_lex(p[1])) + "' con argumentos incorrectos. Se esperaba: " + str(param_list_table) + ". Pero se ha recibido: "+ str(param_list_caller)+".")
 
 def p_S_Alert(p):
     '''S : ALERT LPARENT E RPARENT SEMICOLON'''

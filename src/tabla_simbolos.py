@@ -93,6 +93,10 @@ def get_list_num_params(index):
     global indice_tablas
 
     lex = get_lex(index)
+
+    if not lex:
+        return None, None
+
     n_param = lista_tabla[0][lex]["numParam"]
     lista_param = []
 
