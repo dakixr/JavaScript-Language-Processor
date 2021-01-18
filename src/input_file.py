@@ -26,8 +26,6 @@ def get_file():
 
     global source_code, file_in
 
-    #file_in = open(sys.argv[1], "r")
-
     source_code = ""
 
     for line in file_in:

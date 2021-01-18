@@ -91,7 +91,7 @@ def t_ID(t):
             ts.zona_Input = False
 
             if (index is None): # No declarado
-                index = ts.add_lex(t.value) # Añadir a TS
+                index = ts.add_lex(t.value, var_global = True) # Añadir a TS
 
             t.value = index
             return t
@@ -113,15 +113,16 @@ def t_ID(t):
             if (index is None): # No declarado
 
                 # Duplicar el lexer
-                lexer_copy = copy.deepcopy(lexer)
+                #lexer_copy = copy.deepcopy(lexer)
                 # pedir token
-                token = lexer_copy.token()
+                #token = lexer_copy.token()
                 # ver si es igual que =
                 # print("Valor sig token: " + token.type + ", "+ t.value)
-                if (token.type == "ASSIGN"):
-                    index = ts.add_lex(t.value, var_global = True)
-                    t.value = index
-                    return t
+                #if (token.type == "ASSIGN"):
+                index = ts.add_lex(t.value, var_global = True)
+                t.value = index
+                ts.add_tipo_desplazamiento(index,"ent")
+                return t
                 
                 #sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado" % t.value)
                 print("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado\n" % t.value)
