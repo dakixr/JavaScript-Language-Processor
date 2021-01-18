@@ -68,15 +68,12 @@ def t_ID(t):
         if(t.value == "function" or t.value == "let"):
             ts.zona_Delaracion = True
 
-        #t.type = t.value.upper()
         t.type = reservadas[t.value]
         t.value = ''
 
     else:
 
         index = ts.get_index(t.value)
-
-        #print("añadiendo id: " + str(t.value))
 
         if saving_tokens:
 
@@ -101,11 +98,13 @@ def t_ID(t):
             index = ts.get_index(t.value, var_local = True)
             
             if (index is None): # No declarado
+
                 index = ts.add_lex(t.value) # Añadir a TS
                 ts.zona_Delaracion = False
+
             else:
-                #sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' ya está declarado" % t.value)
-                print("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' ya está declarado\n" % t.value)
+
+                print("Error léxico línea " + str(t.lineno) + ": Identificador '%s' ya ha sido declarado." % t.value)
                 pass
 
         else:
@@ -113,21 +112,17 @@ def t_ID(t):
             if (index is None): # No declarado
 
                 # Duplicar el lexer
-                #lexer_copy = copy.deepcopy(lexer)
+                lexer_copy = copy.deepcopy(lexer)
                 # pedir token
-                #token = lexer_copy.token()
-                # ver si es igual que =
-                # print("Valor sig token: " + token.type + ", "+ t.value)
-                #if (token.type == "ASSIGN"):
+                token = lexer_copy.token()
+                # ver si es igual que (
+                if (token.type == "LPARENT"):
+                    return t
+
                 index = ts.add_lex(t.value, var_global = True)
                 t.value = index
                 ts.add_tipo_desplazamiento(index,"ent")
                 return t
-                
-                #sys.exit("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado" % t.value)
-                print("ERROR léxico línea: " + str(t.lineno) + " \nIdentificador: '%s' no ha sido declarado\n" % t.value)
-                pass
-
 
         t.value = index
 
@@ -205,7 +200,7 @@ def t_CONSTNUM(t):
         t.value = number
     else: 
         #sys.exit("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].")  
-        print("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].\n")  
+        print("Error léxico línea " + str(t.lineno) + ":El número " + str(number) + " se sale del rango [0-65536].")  
         t.value = 65535
 
     return t
@@ -217,14 +212,17 @@ def t_newline(t):
  
 # Controlar los errores
 def t_error(t):
+
     global lexer, err
-    #sys.exit("ERROR léxico línea: "+ str(t.lineno)+" \nCarácter ilegal: '%s'" % t.value[0])
+
     if err:
-        print("ERROR léxico línea: "+ str(t.lineno)+" \nCarácter ilegal: '%s'\n" % t.value[0])
+        print("Error léxico línea " + str(t.lineno) + ": Carácter ilegal: '%s'." % t.value[0])
         err = False
     else:
         err = True
+
     lexer.skip(1)
+
     pass
     
 
@@ -236,8 +234,6 @@ def init():
 
     # Construir el analizador léxico
     lexer = lex.lex()
-
-    #file_in = open(sys.argv[1], "r")
 
     import input_file
     # Proporcionar la entrada para lexer

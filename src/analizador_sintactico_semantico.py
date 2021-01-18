@@ -36,7 +36,7 @@ def p_Axioma_prima(p):
     p[0] = Attr(tipo = str(p[1].tipo))
 
     for err in errores:
-        print("Error semántico " + err + "\n")
+        print("Error semántico " + err)
 
 def p_Axioma_sentencia(p):
     '''Axioma : Sentencia Axioma'''
@@ -74,7 +74,6 @@ def p_Sentencia_tipo_id(p):
     parse.append(7)
     ts.add_tipo_desplazamiento(p[3],p[2].tipo)
     p[0] = Attr(tipo = "tipo_ok")
-    #ts.zona_Delaracion = False
     
 def p_IF_IF1_IF2(p):
     '''IF_ : IF1 IF2'''
@@ -87,7 +86,7 @@ def p_IF1(p):
     p[0] = Attr(tipo = "tipo_ok") if p[3].tipo == "logico" and p[5].tipo == "tipo_ok" else Attr(tipo = "tipo_error")
 
     if p[0].tipo == "tipo_error":
-        errores.append("linea " + str(p.lineno(1)) + ": La comprobación en el if debe ser un boolean.")
+        errores.append("linea " + str(p.lineno(1)) + ": La comprobación en el if debe ser un boolean o una expresión lógica.")
 
 def p_IF2(p):
     '''IF2 : ELSE Senten'''
@@ -119,7 +118,7 @@ def p_S_Asignacion(p):
     p[0] = Attr(tipo = "tipo_ok") if ts.get_tipo(p[1]) == p[3].tipo else Attr(tipo = "tipo_error")
    
     if p[0].tipo == "tipo_error":     
-        errores.append("linea " + str(p.lineno(1)) + ": El tipo de la asignación no coincide con el tipo de la variable.")
+        errores.append("linea " + str(p.lineno(1)) + ": El tipo de la asignación no coincide con el tipo de la variable: " + str(ts.get_tipo(p[1])) + " != " + str(p[3].tipo))
 
 
 def p_S_Asignacion_Remainder(p):
@@ -133,6 +132,7 @@ def p_S_Asignacion_Remainder(p):
 def p_S_Funcion(p):
     '''S : ID LPARENT Parametros RPARENT SEMICOLON'''
     parse.append(16)
+
     param_list_caller = p[3].tipo.split(",") # Como tratas de llamar
     param_list_table, n_param = ts.get_list_num_params(p[1])
 
@@ -141,7 +141,7 @@ def p_S_Funcion(p):
     
     ret = "tipo_error"
 
-    if (n_param == len(param_list_caller)):
+    if (n_param == len(param_list_caller) and ts.get_tipo(p[1]) == "funcion"):
         ret = "tipo_ok"
         for i in range(len(param_list_caller)):
             if param_list_caller[i] != param_list_table[i]:
@@ -151,7 +151,10 @@ def p_S_Funcion(p):
     p[0] = Attr(tipo = ret)
 
     if p[0].tipo == "tipo_error":
-        errores.append("linea " + str(p.lineno(1)) + ": Se ha llamado a la función '" + str(ts.get_lex(p[1])) + "' con argumentos incorrectos. Se esperaba: " + str(param_list_table) + ". Pero se ha recibido: "+ str(param_list_caller)+".")
+        if ts.get_tipo(p[1]) == "funcion":
+            errores.append("linea " + str(p.lineno(1)) + ": Se ha llamado a la función '" + str(ts.get_lex(p[1])) + "' con argumentos incorrectos. Se esperaba: " + str(param_list_table) + ". Pero se ha recibido: "+ str(param_list_caller)+".")
+        else:
+            errores.append("linea " + str(p.lineno(1)) + ": La variable '" + str(ts.get_lex(p[1])) +"' no ha sido declarada como función.")
 
 def p_S_Alert(p):
     '''S : ALERT LPARENT E RPARENT SEMICOLON'''
@@ -236,7 +239,6 @@ def p_F2(p):
     '''F2 : LPARENT Cabecera RPARENT'''
     parse.append(28)
     p[0] = Attr(tipo = p[2].tipo)
-    #ts.zona_Delaracion =  False
 
 def p_F3(p):
     '''F3 : LBRACKET Lista_Sentencias RBRACKET'''
@@ -270,7 +272,6 @@ def p_Tipo_B_lambda(p):
     '''Tipo_B : empty'''
     parse.append(34)
     p[0] = Attr(tipo = "void")
-    #ts.zona_Delaracion = True
 
 def p_Cabecera_Tipo(p):
     '''Cabecera : Tipo ID K'''
@@ -387,6 +388,19 @@ def p_V2(p):
     parse.append(51)
     p[0] = Attr(tipo = str(ts.get_return_type(p[1])))
 
+    if ts.get_tipo(p[1]) != "funcion":
+        
+        try:
+            func_name = int(p[1])
+            func_name = ts.get_lex(p[1])
+            pass
+        except:
+            func_name = p[1]
+            pass
+        
+        errores.append("linea " + str(p.lineno(1)) + ": La variable '" + str(func_name) +"' no ha sido declarada como función.")
+    
+
 def p_V3(p):
     '''V : CONSTNUM'''
     parse.append(52)
@@ -405,12 +419,11 @@ def p_empty(p):
 # Error rule for syntax errors
 def p_error(p):
     try:
-        print("Error de sintaxis: linea " + str(p.lineno))
-        print("< " + p.type + ", " + str(p.value) + " >\n")
+        print("Error de sintaxis linea " + str(p.lineno) +": < " + p.type + ", " + str(p.value) + " >")
         pass
     
     except:
-        print("Error de sintaxis...")
+        print("Error de sintaxis... Revisa los ;")
         pass
 
 ############################################################
@@ -425,10 +438,6 @@ def init():
     # Crear parser
     yacc.yaccdebug = False # No crear archivo de depuración
     parser = yacc.yacc()
-
-    # Abrir el código fuente
-    #file_in = open(sys.argv[1], "r")
-
 
     import input_file
     parser.parse(input_file.source_code)

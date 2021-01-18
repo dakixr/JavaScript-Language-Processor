@@ -10,7 +10,7 @@ def init():
     global file_in, first_time
 
     if not first_time:
-        input("Pulsar cualquier tecla para procesar otro archivo...\n\n")
+        input("Pulsar enter para procesar otro archivo...\n\n")
     else:
         first_time = False
 

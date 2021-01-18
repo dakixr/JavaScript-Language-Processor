@@ -1,2 +1,1 @@
-ERROR léxico línea: 5 
-Identificador: 'n' ya está declarado
+Error léxico línea 5: Identificador 'n' ya ha sido declarado.

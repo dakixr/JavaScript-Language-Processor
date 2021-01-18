@@ -38,9 +38,13 @@ def get_index(lex, var_local = False):
         else:
             return None
 
-    for i in range(0,len(indice_tablas)):
+    '''for i in range(0,len(indice_tablas)):
         if (lex in lista_tabla[indice_tablas[i]]): # Si el lexema está en la TS
-            return lista_tabla[indice_tablas[i]][lex]["index"]
+            return lista_tabla[indice_tablas[i]][lex]["index"]'''
+
+    for i in [indice_tablas[-1], 0]:
+        if (lex in lista_tabla[i]): # Si el lexema está en la TS
+            return lista_tabla[i][lex]["index"]
     return None
 
 def get_lex(index):
@@ -63,9 +67,9 @@ def get_return_type(index):
     global lista_tabla
     global indice_tablas
 
-    for i in range(len(indice_tablas)):
-        if (lex in lista_tabla[indice_tablas[i]]): # Si el lexema está en la TS
-            return lista_tabla[indice_tablas[i]][lex]["TipoRetorno"]
+    if (lex in lista_tabla[0]): # Si el lexema está en la TS
+        return lista_tabla[0][lex]["TipoRetorno"]
+
     return None
 
 def get_tipo(index):
@@ -76,9 +80,9 @@ def get_tipo(index):
     global lista_tabla
     global indice_tablas
 
-    for i in range(len(indice_tablas)):
-        if (lex in lista_tabla[indice_tablas[i]]): # Si el lexema está en la TS
-                return lista_tabla[indice_tablas[i]][lex]["Tipo"]
+    for i in [indice_tablas[-1], 0]:
+        if (lex in lista_tabla[i]): # Si el lexema está en la TS
+                return lista_tabla[i][lex]["Tipo"]
     return None
 
 def get_curr_function():
