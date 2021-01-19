@@ -418,12 +418,17 @@ def p_empty(p):
 
 # Error rule for syntax errors
 def p_error(p):
+
+    import analizador_lexico
+
     try:
         print("Error de sintaxis linea " + str(p.lineno) +": < " + p.type + ", " + str(p.value) + " >")
+        analizador_lexico.lexer.skip(99999999) 
         pass
     
     except:
         print("Error de sintaxis... Revisa los ;")
+        analizador_lexico.lexer.skip(99999999)
         pass
 
 ############################################################

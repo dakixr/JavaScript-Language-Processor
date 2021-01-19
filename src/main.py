@@ -37,9 +37,9 @@ while True:
     ts.save_symbol_table()
 
     print("------------------------------------------------------------------------------------")
-    print("Tokens generados correctamente.")
-    print("Parse generado correctamente.")
-    print("Tabla de simbolos generada correctamente.")
+    print("Tokens generados.")
+    print("Parse generado.")
+    print("Tabla de simbolos generada.")
     print("____________________________________________________________________________________")
 
 
