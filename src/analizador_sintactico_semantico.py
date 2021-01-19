@@ -49,6 +49,7 @@ def p_Axioma_sentencia(p):
 def p_Axioma_funcion(p):
     '''Axioma : Funcion Axioma'''
     parse.append(3)
+
     if (p[2].tipo == "void"):
         p[0] = Attr(tipo = str(p[1].tipo))
     else:
@@ -226,7 +227,6 @@ def p_Funcion(p):
     p[0] = Attr(tipo = str(p[3].tipo))
     ts.add_tipo_num_parametros(p[1].id,p[2].tipo)
     ts.borrar_current_tabla()
-    #ts.zona_Delaracion = False
 
 def p_F1(p):
     '''F1 : FUNCTION Tipo_B ID'''

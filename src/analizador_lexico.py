@@ -7,6 +7,9 @@ from ply import lex
 # Modo especial para guardar los tokens
 saving_tokens = False
 err = True
+err2 = True
+
+
 
 # Tipos de tokens
 tokens = ['ID', 'PLUS', 'MINUS', 'LPARENT',      'RPARENT',     'LBRACKET',
@@ -65,8 +68,15 @@ def t_ID(t):
         if(t.value == "input"):
             ts.zona_Input = True
 
-        if(t.value == "function" or t.value == "let"):
+        if(t.value == "let"):
             ts.zona_Delaracion = True
+        
+        if(t.value == "function"):
+            ts.zona_Delaracion = True
+            ts.dentro_de_funcion = True
+
+        if(t.value == "return" and not ts.dentro_de_funcion):
+            print("Error sintáctico linea " + str(t.lineno) + ": El return no se encuentra dentro de una función.")
 
         t.type = reservadas[t.value]
         t.value = ''
@@ -118,7 +128,7 @@ def t_ID(t):
                 # ver si es igual que (
                 if (token.type == "LPARENT"):
                     return t
-
+                    
                 index = ts.add_lex(t.value, var_global = True)
                 t.value = index
                 ts.add_tipo_desplazamiento(index,"ent")
@@ -150,11 +160,21 @@ def t_RPARENT(t):
 
 def t_RBRACKET(t):
     r'\}'
+
+    if ts.dentro_de_funcion:
+        ts.brakets_cont -= 1
+        if ts.brakets_cont == 0:
+            ts.dentro_de_funcion = False
+
     t.value = ''
     return t
 
 def t_LBRACKET(t):
     r'\{'
+
+    if ts.dentro_de_funcion:
+        ts.brakets_cont += 1
+
     t.value = ''
     return t
 
@@ -195,12 +215,21 @@ def t_MINUS(t):
 
 def t_CONSTNUM(t):
     r'\d+'     
+
     number = int(t.value)
+
+    global err2
+
     if(number < 65536):
         t.value = number
     else: 
-        #sys.exit("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].")  
-        print("Error léxico línea " + str(t.lineno) + ":El número " + str(number) + " se sale del rango [0-65536].")  
+        #sys.exit("ERROR léxico línea: "+ str(t.lineno)+" \nEl número "+ str(number) + " se sale del rango [0-65536].")
+        if err2:
+            print("Error léxico línea " + str(t.lineno) + ":El número " + str(number) + " se sale del rango [0-65536].")
+            err2 = False
+        else:
+            err2 = True  
+              
         t.value = 65535
 
     return t
